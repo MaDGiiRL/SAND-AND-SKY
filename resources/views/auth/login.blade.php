@@ -1,5 +1,5 @@
 <x-layout title="Login - Bloom Beauty">
-    <div class="bg-register pb-5 vh-100 mt-5 pt-5" >
+    <div class="bg-register pb-5 vh-100 mt-5 pt-5 auth">
         <div class="container py-5 my-5 py-md-0 my-md-0 register" >
             <div class="row justify-content-center p-5 mt-4 mt-md-0" >
                 <div class="col-md-6 border shadow roundend bg-white p-4 p-md-5">
@@ -33,7 +33,7 @@
                         <button class="btn btn-light  border d-flex align-items-center justify-content-center">
                             <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="me-2" width="20"> <span class="d-md-block d-none">Login With Google</span>
                         </button>
-                        <a href="{{ route('github.login') }}" class="btn btn-dark border d-flex align-items-center justify-content-center">
+                        <a href="{{ route('github.login') }}" class="btn link-light btn-dark border d-flex align-items-center justify-content-center">
                             <i class="bi bi-github pe-2"></i> <span class="d-md-block d-none">Login With GitHub</span>
                         </a>
                     </div>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PublicController;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
@@ -14,3 +15,8 @@ Route::get('/auth/github', [AuthController::class, 'redirectToGithub'])->name('g
 Route::get('/auth/github/callback', [AuthController::class, 'handleGithubCallback']);
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/my-account', [AuthController::class, 'account'])->name('auth.account');
+
+Route::get('/blog-index', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
+Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
+Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');

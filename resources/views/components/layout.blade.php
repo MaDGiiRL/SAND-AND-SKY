@@ -21,6 +21,10 @@
 </head>
 
 <body>
+
+    <x-banner />
+
+
     <!-- navbar componenet -->
     <x-navbar />
 

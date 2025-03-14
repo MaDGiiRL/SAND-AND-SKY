@@ -514,6 +514,7 @@ class PublicController extends Controller
             });
         }
 
+        
         return response()->json($filteredProducts->values());
     }
 

@@ -13,7 +13,7 @@
                         @auth
                         <li class="nav-item"><a class="nav-link" href="">Skin Quiz</a></li>
                         @endauth
-                        <a class="nav-link" href="">Blog</a>
+                        <a class="nav-link" href="{{route('blog.index')}}">Blog</a>
                         <li class="nav-item"><a class="nav-link" href="">About</a></li>
                     </ul>
                     <a class="navbar-brand" href="{{ route('homepage') }}">
