@@ -9,8 +9,10 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                     <ul class="navbar-nav d-flex align-items-center">
-                        <li class="nav-item"><a class="nav-link" href="">Shop</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('all')}}">Shop</a></li>
+                        @auth
                         <li class="nav-item"><a class="nav-link" href="">Skin Quiz</a></li>
+                        @endauth
                         <a class="nav-link" href="">Blog</a>
                         <li class="nav-item"><a class="nav-link" href="">About</a></li>
                     </ul>
@@ -44,8 +46,8 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     @guest
-                                    <li><a class="dropdown-item" href="">Login</a></li>
-                                    <li><a class="dropdown-item" href="">Register</a></li>
+                                    <li><a class="dropdown-item" href="{{route('login')}}">Login</a></li>
+                                    <li><a class="dropdown-item" href="{{route('register')}}">Register</a></li>
                                     @endguest
 
                                     @auth

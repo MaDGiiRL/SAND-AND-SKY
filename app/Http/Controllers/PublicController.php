@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
 {
+
     public $products = [
         [
             "id" => 1,
@@ -15,7 +17,7 @@ class PublicController extends Controller
             "image" => "/images/detox/1.png",
             "price" => 39,
             "type" => '',
-
+            
             "desc" => "Refresh and reset your skin: treat your pores to a deep detox, smooth out skin texture and boost radiance with this multi-talented clay mask. Clogged pores, blackheads, we don't know them.",
             "tags" => ['Tightens pores in 10 minutes', 'Fades hyperpigmentation & evens skin tone', 'Draws out toxins, impurities and excess sebum clogging pores', 'Refines skin texture'],
             "accordion_1" => "Kaolin (Australian Clay), Aqua (Water), Bentonite, Aloe Barbadensis (Aloe Vera) Leaf Juice, Terminalia Ferdinandiana (Kakadu Plum) Fruit Extract, Centipeda Cunninghamii Extract (Old Man's Weed), Glycyrrhiza Glabra (Liquorice) Root Extract, Retinyl Palmitate (Vitamin A), Tocopheryl Acetate (Vitamin E), Undaria Pinnatifida (Kelp) Extract, Hamamelis Virginiana (Witch Hazel) Bark/Twig Extract, Punica Granatum (Pomegranate) Sterols, Garcinia Mangostana (Mangosteen) Fruit Extract, Rosmarinus Officinalis (Rosemary) Leaf Extract, Phenoxyethanol, Dehydroacetic Acid, Lactic Acid, CI 77491, Parfum*, Glycerin, Benzyl Alcohol, Limonene.",
@@ -30,7 +32,7 @@ class PublicController extends Controller
             "image" => "/images/detox/2.png",
             "price" => 25,
             "type" => '',
-
+            
             "desc" => "A 4-in-1 purifying deep pore cleanser that easily lifts away make-up, clears congestion, tightens pores and gently exfoliates skin everyday without stripping moisture.",
             "tags" => ['Deeply detoxifies and refines skin', 'Removes make up and clears congestions', 'Exfoliates gently with AHAs and luffa plant extract', 'Reduces the appearance of pores', 'Balances oil production', 'Hydrates and nourishes skin with squalane for a supple feel'],
             "accordion_1" => "Aqua, Propanediol , Decyl Glucoside, Polyacrylate Crosspolymer-6, Cocamidopropyl Betaine, Sodium Lauroyl Sarcosinate, Glycerin, Macadamia Intergrifolia Seed Oil, Luffa Cylindrica Fruit Powder, Kaolin, Hamamelis Virginiana (Witch hazel), Alcohol, Microcitrus Australis (Radescrest lime), Citrus Glauca (Desert lime), Microcitrus Australasica (finger Lime), Backhousia Citriodora (Lemon myrtle), Bisabolol, Allantoin, Parfum, CI 77491, Benzyl Alcohol, Dehydroacetic Acid.",
@@ -46,7 +48,7 @@ class PublicController extends Controller
             "image" => "/images/detox/3.png",
             "price" => 65,
             "type" => '',
-
+            
             "desc" => "A 4-in-1 purifying deep pore cleanser that easily lifts away make-up, clears congestion, tightens pores and gently exfoliates skin everyday without stripping moisture.",
             "tags" => ['Deeply detoxifies and refines skin', 'Removes make up and clears congestions', 'Exfoliates gently with AHAs and luffa plant extract', 'Reduces the appearance of pores', 'Balances oil production', 'Hydrates and nourishes skin with squalane for a supple feel'],
             "accordion_1" => "Aqua, Propanediol , Decyl Glucoside, Polyacrylate Crosspolymer-6, Cocamidopropyl Betaine, Sodium Lauroyl Sarcosinate, Glycerin, Macadamia Intergrifolia Seed Oil, Luffa Cylindrica Fruit Powder, Kaolin, Hamamelis Virginiana (Witch hazel), Alcohol, Microcitrus Australis (Radescrest lime), Citrus Glauca (Desert lime), Microcitrus Australasica (finger Lime), Backhousia Citriodora (Lemon myrtle), Bisabolol, Allantoin, Parfum, CI 77491, Benzyl Alcohol, Dehydroacetic Acid.",
@@ -62,7 +64,7 @@ class PublicController extends Controller
             "image" => "/images/detox/4.png",
             "price" => 78,
             "type" => '',
-
+            
             "desc" => "Our bestselling 4-in-1 miracle mask that deeply detoxify your skin, achieving tighten pores, brighter complexion and improved radiance  in 10 minutes!",
             "tags" => ['Tightens pores & brightens skin in 10 minutes', 'Deeply detoxifies to draw impurities, toxins, and pollutants from the skin', 'Tackles pigmentation & evens skin tone', 'Winner of 5 major beauty awards', '4-in-1 treatment + 2 FREE applicator brushes', 'Cruelty-free and ZERO nasties '],
             "accordion_1" => "Kaolin (Australian Clay), Aqua (Water), Bentonite, Aloe Barbadensis (Aloe Vera) Leaf Juice, Terminalia Ferdinandiana (Kakadu Plum) Fruit Extract, Centipeda Cunninghamii Extract (Old Man's Weed), Glycyrrhiza Glabra (Liquorice) Root Extract, Retinyl Palmitate (Vitamin A), Tocopheryl Acetate (Vitamin E), Undaria Pinnatifida (Kelp) Extract, Hamamelis Virginiana (Witch Hazel) Bark/Twig Extract, Punica Granatum (Pomegranate) Sterols, Garcinia Mangostana (Mangosteen) Fruit Extract, Rosmarinus Officinalis (Rosemary) Leaf Extract, Phenoxyethanol, Dehydroacetic Acid, Lactic Acid, CI 77491, Parfum*, Glycerin, Benzyl Alcohol, Limonene.",
@@ -79,7 +81,7 @@ class PublicController extends Controller
             "image" => "/images/detox/6.png",
             "price" => 78,
             "type" => '',
-
+            
             "desc" => "Reset your skin for refined pores and clearer, softer and smoother skin. Smooth uneven texture, soothe irritation and instantly boost radiance in 3 easy steps!",
             "tags" => ['Tightens pores & brightens skin in 10 minutes', 'Deeply detoxifies to draw impurities, toxins, and pollutants from the skin', 'Tackles pigmentation & evens skin tone', 'Gentle physical exfoliation sloughs of dead skin cells', 'Absorbs oil, clears congestions and refines pores', 'Resurfaces + mattifies your skin'],
             "accordion_1" => "Aqua, Kaolin (Australian clay),Macadamia Integrifolia seed powder,Bambusa Arundinacea (Bamboo) Stem Powder, Vitis vinifera (Grape) seed oil, Glycerin, Cetearyl Alcohol, Stearic acid, Olea Europea (Olive) fruit oil, Ceteareth-20, Hamamelis virginiana (Witch hazel) extract, Microcitrus australasica (finger lime) fruit extract, Citrus Glauca Fruit Extract (desert lime),Rosa eglanteria (Rosehip) seed oil, Vaccinium myrtillus (bilberry) fruit extract, Saccharum Officinarum Extract, Citrus Aurantium Dulcis Fruit Extract, Citrus Limon Fruit Extract, Acer Saccharum Sap Extract, Calcium carbonate (Pearl powder), Citrus Paradisi (Grapefruit) Peel Oil, Citrus Aurantium Amara (Petitgrain) Leaf/ Twig Oil, Citrus Aurantifolia (Lime) Oil, Pelargonium Graveolens(Geranium) Flower Oil, Viola Odorata Flower/Leaf Extract, Natural Vitamin E, Carrageenan,Phenoxyethanol, Benzyl alcohol and Dehydroacetic acid. CI77491, Lactic acid.",
@@ -99,7 +101,7 @@ class PublicController extends Controller
             "image" => "/images/detox/5.png",
             "price" => 29,
             "type" => '',
-
+            
             "desc" => "Smooth uneven texture and clear congestion with this triple-action facial exfoliator.",
             "tags" => ['Bamboo & Macadamia for gentle physical exfoliation', 'Finger Lime extracts gently and sloughs off dead skin cells', 'Absorbs oil, clears congestions and refines pores', 'Resurfaces + mattifies your skin', 'Cruelty-free and ZERO nasties'],
             "accordion_1" => "Aqua, Kaolin (Australian clay),Macadamia Integrifolia seed powder,Bambusa Arundinacea (Bamboo) Stem Powder, Vitis vinifera (Grape) seed oil, Glycerin, Cetearyl Alcohol, Stearic acid, Olea Europea (Olive) fruit oil, Ceteareth-20, Hamamelis virginiana (Witch hazel) extract, Microcitrus australasica (finger lime) fruit extract, Citrus Glauca Fruit Extract (desert lime),Rosa eglanteria (Rosehip) seed oil, Vaccinium myrtillus (bilberry) fruit extract, Saccharum Officinarum Extract, Citrus Aurantium Dulcis Fruit Extract, Citrus Limon Fruit Extract, Acer Saccharum Sap Extract, Calcium carbonate (Pearl powder), Citrus Paradisi (Grapefruit) Peel Oil, Citrus Aurantium Amara (Petitgrain) Leaf/ Twig Oil, Citrus Aurantifolia (Lime) Oil, Pelargonium Graveolens(Geranium) Flower Oil, Viola Odorata Flower/Leaf Extract, Natural Vitamin E, Carrageenan,Phenoxyethanol, Benzyl alcohol and Dehydroacetic acid. CI77491, Lactic acid.",
@@ -119,7 +121,7 @@ class PublicController extends Controller
             "image" => "/images/detox/8.png",
             "price" => 24,
             "type" => '',
-
+            
             "desc" => "Glow from head to toe with the world's first Australian Pink Clay body scrub.",
             "tags" => ['Deeply detox, smooth, moisturise and illuminate skin', 'Cleanses and moisturises for silky-soft, touch-me skin', 'Gently exfoliates to tackle cellulite, stretch marks + ingrown hair', 'Botanical-based body scrub', 'Eco-friendly Mica glitter shines bright on your body', 'FREE scoop for mess-free application'],
             "accordion_1" => "Oryza Sativa (Rice) Powder/Oryza Sativa Powder, Macadamia Integrifolia Seed Oil, Kaolin, Cocos Nucifera (Coconut) Shell Powder/Cocos Nucifera Shell Powder, Macadamia Ternifolia Shell Powder, Tocopherol, Rayon, Glycerin, Aqua/ Water/ Eau, Urea, Styrene/Acrylates Copolymer, Calcium Aluminum Borosilicate, Silica, Tin oxide, Undaria Pinnatifida Extract, Parfum/Fragrance, Limonene, Phenoxyethanol, Benzyl alcohol, Dehydroacetic acid, Linalool, CI 77491/Iron Oxides, CI 42090/FD&C Blue No. 1, CI 15850/D&C Red No. 6, CI 77000/ Aluminum powder, CI 77891/Titanium Dioxide",
@@ -136,7 +138,7 @@ class PublicController extends Controller
             "image" => "/images/detox/9.png",
             "price" => 49,
             "type" => '',
-
+            
             "desc" => "Reignite your skin’s natural beauty with our triple-action resurfacing face mask",
             "tags" => ['Combines 10% Skin Resurfacing Complex (AHA, BHA & PHA), Marshmallow Extract, 40% Australian Pink Clay & Lime Caviar Extract.', '93%* of users said their skin texture felt smoother', 'Instant Glow: In just 10 minutes, the mask deeply cleanses, exfoliates, and renews skin, leaving you with a luminous, smoother complexion', 'Gentle Yet Effective: Suitable for all skin types, the formula balances intense resurfacing with soothing hydration, perfect for sensitive skin.'],
             "accordion_1" => "FREE from petroleum & mineral oils, formaldehyde , soy and nuts
@@ -154,7 +156,7 @@ class PublicController extends Controller
             "image" => "/images/tasmanian/1.png",
             "price" => 35,
             "type" => '',
-
+            
             "desc" => "Intensively hydrates and repairs skin barrier, achieving instant luminous skin in 10 minutes.",
             "tags" => ['Instantly soothes redness within 10 minutes*', 'Strengthens skin barriers', '40% increase in skin hydration', 'Retains skin moisture by up to 30%', '45% decrease in skin redness', 'Improves skin texture and reduces wrinkle by 34%'],
             "accordion_1" => "Aqua/Water/Eau, Butylene Glycol, Dimethylsilanol Hyaluronate, Caprylic/Capric Triglyceride, Squalane, 1,2-Hexanediol, Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer, Saccharide Isomerate, Centaurea Cyanus Flower Extract, Magnesium Aspartate, Zinc Gluconate, Hydrolyzed Hyaluronic Acid, Copper Gluconate, Sodium Hyaluronate, Undaria Pinnatifida Extract, Glycerin, Tocopherol, Tetrasodium Glutamate Diacetate, Carbomer, Fragrance/Parfum, Ethylhexylglycerin, Phenoxyethanol, Sodium Benzoate, Potassium Sorbate, Sodium Hydroxide, Sodium Citrate, Citric Acid, FD&C Blue No. 1/CI 42090, Limonene, Linalool, Citral.",
@@ -169,7 +171,7 @@ class PublicController extends Controller
             "image" => "/images/tasmanian/2.png",
             "price" => 88,
             "type" => '',
-
+            
             "desc" => "Drench and quench with our ultra-hydrating gel-cream moisturiser.",
             "tags" => ['Hydrates & strengthens with Tasmanian Spring Water', 'Hyaluronic Acid Complex locks in moisture', 'Fermented Sea Kelp smooths skin & targets wrinkles', 'Red Seaweed Extract forms ‘second skin’ to prevent dehydration', 'Ultra-lightweight gel-cream  ideal for all skin types'],
             "accordion_1" => "Aqua/Water/Eau, Butylene Glycol, C15-19 Alkane, Caprylic/Capric Triglyceride, Propylene Glycol Laurate, Cetyl Palmitate, Coco-Caprylate/Caprate, Glycerin, Xylitylglucoside, 1,2-Hexanediol, Apricot Kernel Oil Polyglyceryl-6 Esters, Carbomer, Potassium Cetyl Phosphate, Hyaluronic Acid, Hydrolyzed Hyaluronic Acid, Anhydroxylitol, Xylitol, Caprylyl Glycol, Ethylcellulose, Propylene Glycol Isostearate, Sodium Hydroxide, Chondrus Crispus (Carrageenan) Extract, Ethylhexylglycerin,Parfum/ Fragrance/Perfume, Agar, Aloe Barbadensis Leaf Juice, Sodium Hyaluronate, Undaria Pinnatifida Extract, Methylpropanediol, Citral, Dehydroacetic Acid, Silanetriol, Citric Acid, Xanthan Gum, CI 42090/F, D&C Blue No. 1, Potassium Sorbate, Sodium Benzoate, Benzyl Alcohol, Linalool, Limonene.",
@@ -189,7 +191,7 @@ class PublicController extends Controller
             "image" => "/images/tasmanian/3.png",
             "price" => 44,
             "type" => '',
-
+            
             "desc" => "Say bye to dry with this ultra-hydrating, water-based serum.",
             "tags" => ['Hydrate & fortify with Tasmanian Spring Water', 'Hyaluronic Acid Complex locks in moisture', 'Fermented Sea Kelp smooths skin & targets wrinkles', 'Mineral + probiotic formula strengthens skin barrier', 'Light, water-based serum ideal for daily use'],
             "accordion_1" => "Aqua/Water/ Eau, Dimethylsilanol Hyaluronate, 1,2-Hexanediol, Butylene Glycol, Glycerin, Methyl Gluceth-20, Polysorbate 20, Sodium Levulinate, Undaria Pinnatifida Extract, Xanthan Gum, Parfum/Fragrance/Perfume, Sodium Anisate, Sodium Hyaluronate, Hydrolyzed Hyaluronic Acid, Tetrasodium Glutamate Diacetate, Citric Acid, Phenoxyethanol, Bifida Ferment Lysate, Sodium Hydroxide, Sodium Benzoate, Lactic Acid, Acetic Acid, Citral, Linalool, Limonene.",
@@ -204,7 +206,7 @@ class PublicController extends Controller
             "image" => "/images/tasmanian/4.png",
             "price" => 44,
             "type" => '',
-
+            
             "desc" => "Say bye to dry with this ultra-hydrating, water-based serum.",
             "tags" => ['Hydrate & fortify with Tasmanian Spring Water', 'Hyaluronic Acid Complex locks in moisture', 'Fermented Sea Kelp smooths skin & targets wrinkles', 'Mineral + probiotic formula strengthens skin barrier', 'Light, water-based serum ideal for daily use'],
             "accordion_1" => "Aqua/Water/ Eau, Dimethylsilanol Hyaluronate, 1,2-Hexanediol, Butylene Glycol, Glycerin, Methyl Gluceth-20, Polysorbate 20, Sodium Levulinate, Undaria Pinnatifida Extract, Xanthan Gum, Parfum/Fragrance/Perfume, Sodium Anisate, Sodium Hyaluronate, Hydrolyzed Hyaluronic Acid, Tetrasodium Glutamate Diacetate, Citric Acid, Phenoxyethanol, Bifida Ferment Lysate, Sodium Hydroxide, Sodium Benzoate, Lactic Acid, Acetic Acid, Citral, Linalool, Limonene.",
@@ -219,7 +221,7 @@ class PublicController extends Controller
             "image" => "/images/tasmanian/5.png",
             "price" => 75,
             "type" => '',
-
+            
             "desc" => "The power-packed AM to PM duo guaranteed to quench your skin from deep within.
             Strengthen skin barriers and increase skin's hydration levels during the day. At night, provide your skin with overnight intensive skin repair and regeneration process together with enhanced collagen production.
             Meet your two new besties for hydrated, plump and balanced skin - repairing and strengthening skin barriers all day, all night.",
@@ -238,7 +240,7 @@ class PublicController extends Controller
             "image" => "/images/tasmanian/6.png",
             "price" => 75,
             "type" => '',
-
+            
             "desc" => "Your daily essentials for lasting hydration, skin recovery, and a radiance that won’t quit.",
             "tags" => ['Hydrate & fortify with Tasmanian Spring Water', 'Hyaluronic Acid Complex locks in moisture', 'Fermented Sea Kelp smooths skin & targets wrinkles', 'Mineral + probiotic formula strengthens skin barrier', 'Light, water-based serum ideal for daily use'],
             "accordion_1" => "Aqua/Water/ Eau, Dimethylsilanol Hyaluronate, 1,2-Hexanediol, Butylene Glycol, Glycerin, Methyl Gluceth-20, Polysorbate 20, Sodium Levulinate, Undaria Pinnatifida Extract, Xanthan Gum, Parfum/Fragrance/Perfume, Sodium Anisate, Sodium Hyaluronate, Hydrolyzed Hyaluronic Acid, Tetrasodium Glutamate Diacetate, Citric Acid, Phenoxyethanol, Bifida Ferment Lysate, Sodium Hydroxide, Sodium Benzoate, Lactic Acid, Acetic Acid, Citral, Linalool, Limonene.",
@@ -255,7 +257,7 @@ class PublicController extends Controller
             "image" => "/images/tasmanian/7.png",
             "price" => 79,
             "type" => '',
-
+            
             "desc" => "Bring back the twinkle in your eye and glow to your complexion with this essential eye cream + moisturiser kit duo.",
             "tags" => ['Hydrate & fortify with Tasmanian Spring Water', 'Hyaluronic Acid Complex locks in moisture', 'Fermented Sea Kelp smooths skin & targets wrinkles', 'Mineral + probiotic formula strengthens skin barrier', 'Light, water-based serum ideal for daily use'],
             "accordion_1" => "Aqua/Water/ Eau, Dimethylsilanol Hyaluronate, 1,2-Hexanediol, Butylene Glycol, Glycerin, Methyl Gluceth-20, Polysorbate 20, Sodium Levulinate, Undaria Pinnatifida Extract, Xanthan Gum, Parfum/Fragrance/Perfume, Sodium Anisate, Sodium Hyaluronate, Hydrolyzed Hyaluronic Acid, Tetrasodium Glutamate Diacetate, Citric Acid, Phenoxyethanol, Bifida Ferment Lysate, Sodium Hydroxide, Sodium Benzoate, Lactic Acid, Acetic Acid, Citral, Linalool, Limonene.",
@@ -272,7 +274,7 @@ class PublicController extends Controller
             "image" => "/images/tasmanian/9.png",
             "price" => 45,
             "type" => '',
-
+            
             "desc" => "An innovative night cream that deeply hydrates skin, prepping it for an overnight boosted regeneration and replenishing process, for more youthful radiance by morning.",
             "tags" => ['Retains skin moisture by up to 30%', '110% increase in skin hydration', 'Decrease in skin redness by up to 20%', 'Increase in skin renewal by 56% (after 2 days of use)', 'Reduction in wrinkled area by 24% (after 14 days of use)', 'Increase in skin elasticity by 67%', 'Boost in skin collagen production by 165%'],
             "accordion_1" => "Aqua (Water), Coco-caprylate/caprate, Squalane, Dimethylsilanol hyaluronate, Glycerin, 1,2-Hexanediol, Hydroxyethyl acrylate/sodium acryloyldimethyl taurate copolymer, Carbomer, Propanediol, Undaria pinnatifida extract, Pseudoalteromonas ferment extract, Ethylhexylglycerin, Sodium hydroxide, Parfum (Fragrance), Phenoxyethanol, Orobanche rapum extract, Hydrolyzed Hyaluronic acid, Caprylyl glycol, Sodium hyaluronate",
@@ -287,7 +289,7 @@ class PublicController extends Controller
             "image" => "/images/oil/1.png",
             "price" => 35,
             "type" => '',
-
+            
             "desc" => "The nemesis of excess sebum, enlarged pores and blemishes, this clay mask rebalances microbiome, leaving skin clear of imperfections.",
             "tags" => ['Combat breakout-causing debris and excess oil', 'Reduce skin redness and inflammation by 29%', 'Tighten and reduce pore size by 60%', 'Reduces sebum production by 28% (after 10 days)', 'Improve appearance of acne scars and marks', 'With powerful ingredients such as Salicylic Acid and Prebiotics'],
             "accordion_1" => "Aqua [Water], Kaolin, Magnesium aluminum silicate, Glycerin, Propanediol, Butylene glycol, Fomes officinalis (Mushroom) extract, Microcrystalline cellulose, Salicylic acid, Phenoxyethanol, Polyacrylate crosspolymer-6, Decyl glucoside, Niacinamide, Aloe barbadensis leaf juice, Sodium hydroxide, Cellulose gum, CI 77288 [Chromium oxide greens], Maltodextrin, Bixa orellana seed extract, Ethylhexylglycerin, Tetrasodium glutamate diacetate, Citric acid, Inulin, Zinc oxide, Tasmannia lanceolata fruit/leaf extract, Centipeda cunninghamii extract, Citrus australasica fruit extract, Alpha-glucan oligosaccharide, Salix alba (Willow) bark extract, PEG-40 hydrogenated castor oil, Hamamelis virginiana (Witch hazel) leaf extract, Sodium benzoate, Potassium sorbate",
@@ -303,7 +305,7 @@ class PublicController extends Controller
             "image" => "/images/oil/2.png",
             "price" => 35,
             "type" => '',
-
+            
             "desc" => "A gentle daily cleanser for oily skin. It unclogs nasties in pores and regulates sebum production to combat blemishes.",
             "tags" => ['Combat breakout-causing debris and excess oil', 'Reduce skin redness and inflammation by 29%', 'Tighten and reduce pore size by 60%', 'Reduces sebum production by 28% (after 10 days)', 'Prevents breakouts and balances skins oil levels', 'Unclogs pores & removes makeup, oil and impurities'],
             "accordion_1" => "Aqua, Hydrogenated starch hydrolysate, Sodium lauroyl methyl isethionate, Glycerin, Cocamidopropyl hydroxysultaine, Lauryl glucoside, Polyacrylate crosspolymer-6, Salicylic acid, Aloe barbadensis leaf juice, Inulin, Sodium lactate, Saccharide isomerate, Sodium benzoate, Sodium hydroxide, Alpha-glucan oligosaccharide, Trisodium ethylenediamine disuccinate, Potassium sorbate, Citric acid, Centipeda cunninghamii extract, Citrus australasica fruit extract, Tetrasodium glutamate diacetate, Salix alba (Willow) bark extract, Sodium citrate, Tasmannia lanceolata fruit/leaf extract, CI 19140/Yellow 5, CI 42090/Blue 1",
@@ -318,7 +320,7 @@ class PublicController extends Controller
             "image" => "/images/oil/3.png",
             "price" => 39,
             "type" => '',
-
+            
             "desc" => "A daily lightweight moisturiser that eliminates oily skin, balances and calms inflammation, while delivering essential hydration.",
             "tags" => ['pH balancing formula', 'Reduce skin redness and inflammation by 29%', 'Strengthens skin barriers by 20%', 'Soothe inflammation and balance skins oil levels', 'Tighten and reduce pore size by 60%', 'Double skin defense fortifies skin and adds a layer of protection over skin barrier'],
             "accordion_1" => "Aqua [Water], Glycerin, Propylheptyl caprylate, Sorbitan stearate, Butylene glycol, Caprylic/capric triglyceride, Fomes officinalis (Mushroom) extract, Glycol palmitate, Niacinamide, Salicylic acid Aloe barbadensis leaf juice, Sodium starch octenylsuccinate, Phenoxyethanol, Ammonium acryloyldimethyltaurate/VP copolymer, Inulin, Cetearyl alcohol, Cellulose, Polyacrylate crosspolymer-6, Sodium hydroxide, Alpha-glucan oligosaccharide, Cetearyl glucoside, Maltodextrin, Tocopherol, Bixa orellana seed extract, Centipeda cunninghamii extract, Citrus australasica fruit extract, Ethylhexylglycerin, Tetrasodium glutamate diacetate, Helianthus annuus (Sunflower) seed oil, Glycol, Tasmannia lanceolata fruit/leaf extract, Hamamelis virginiana (Witch hazel) leaf extract, Palmitic acid, Laminaria saccharina extract, Sodium benzoate, Citric acid, PEG-40 hydrogenated castor oil, Potassium sorbate, Zinc sulfate, Pyridoxine HCl",
@@ -333,7 +335,7 @@ class PublicController extends Controller
             "image" => "/images/oil/4.png",
             "price" => 70,
             "type" => '',
-
+            
             "desc" => "The gift of clear skin, tied with a bow! Banish breakouts, clogged pores and oily skin with our complexion perfecting routine. Unclogs pores, regulates sebum overproduction and soothes skin redness, leaving skin clear of imperfections.
             Deep cleanse your skin with this two-step routine that visibly reduces blemishes, as it unclogs pores, regulates sebum overproduction and soothes skin redness, leaving skin clear of imperfections.",
             "tags" => ['pH balancing formula', 'Reduce skin redness and inflammation by 29%', 'Strengthens skin barriers by 20%', 'Soothe inflammation and balance skins oil levels', 'Tighten and reduce pore size by 60%', 'Double skin defense fortifies skin and adds a layer of protection over skin barrier'],
@@ -349,7 +351,7 @@ class PublicController extends Controller
             "image" => "/images/oil/5.png",
             "price" => 70,
             "type" => '',
-
+            
             "desc" => "Your tags-shelf duo for battling breakouts and oily skin. It's as simple as cleanse, patch and go  and let our cutting-edge formula work for you on the way.",
             "tags" => ['pH-balanced formula with 24 hours soothing effect', 'Reduce skin redness and inflammation by 29%', 'Strengthens skin barriers by 20%', 'Soothe inflammation and balance skins oil levels', 'Tighten and reduce pore size by 60%', '75 patches, with two patch types to tailor treatment to your blemishs specific need'],
             "accordion_1" => "Aqua [Water], Glycerin, Propylheptyl caprylate, Sorbitan stearate, Butylene glycol, Caprylic/capric triglyceride, Fomes officinalis (Mushroom) extract, Glycol palmitate, Niacinamide, Salicylic acid Aloe barbadensis leaf juice, Sodium starch octenylsuccinate, Phenoxyethanol, Ammonium acryloyldimethyltaurate/VP copolymer, Inulin, Cetearyl alcohol, Cellulose, Polyacrylate crosspolymer-6, Sodium hydroxide, Alpha-glucan oligosaccharide, Cetearyl glucoside, Maltodextrin, Tocopherol, Bixa orellana seed extract, Centipeda cunninghamii extract, Citrus australasica fruit extract, Ethylhexylglycerin, Tetrasodium glutamate diacetate, Helianthus annuus (Sunflower) seed oil, Glycol, Tasmannia lanceolata fruit/leaf extract, Hamamelis virginiana (Witch hazel) leaf extract, Palmitic acid, Laminaria saccharina extract, Sodium benzoate, Citric acid, PEG-40 hydrogenated castor oil, Potassium sorbate, Zinc sulfate, Pyridoxine HCl",
@@ -366,7 +368,7 @@ class PublicController extends Controller
             "image" => "/images/oil/6.png",
             "price" => 70,
             "type" => '',
-
+            
             "desc" => "Unleash your skin's full potential with our duo, expertly crafted to cleanse, exfoliate, purify and brighten, while combating blemishes and refining pores!",
             "tags" => ['pH-balanced formula with 24 hours soothing effect', 'Reduce skin redness and inflammation by 29%', 'Strengthens skin barriers by 20%', 'Soothe inflammation and balance skins oil levels', 'Tighten and reduce pore size by 60%', '75 patches, with two patch types to tailor treatment to your blemishs specific need'],
             "accordion_1" => "Aqua [Water], Glycerin, Propylheptyl caprylate, Sorbitan stearate, Butylene glycol, Caprylic/capric triglyceride, Fomes officinalis (Mushroom) extract, Glycol palmitate, Niacinamide, Salicylic acid Aloe barbadensis leaf juice, Sodium starch octenylsuccinate, Phenoxyethanol, Ammonium acryloyldimethyltaurate/VP copolymer, Inulin, Cetearyl alcohol, Cellulose, Polyacrylate crosspolymer-6, Sodium hydroxide, Alpha-glucan oligosaccharide, Cetearyl glucoside, Maltodextrin, Tocopherol, Bixa orellana seed extract, Centipeda cunninghamii extract, Citrus australasica fruit extract, Ethylhexylglycerin, Tetrasodium glutamate diacetate, Helianthus annuus (Sunflower) seed oil, Glycol, Tasmannia lanceolata fruit/leaf extract, Hamamelis virginiana (Witch hazel) leaf extract, Palmitic acid, Laminaria saccharina extract, Sodium benzoate, Citric acid, PEG-40 hydrogenated castor oil, Potassium sorbate, Zinc sulfate, Pyridoxine HCl",
@@ -384,7 +386,7 @@ class PublicController extends Controller
             "image" => "/images/glow/1.png",
             "price" => 39,
             "type" => '',
-
+            
             "desc" => "Deeply hydrate, brighten and protect the skin with this antioxidant rich face mask.",
             "tags" => ['Brightens & evens skin tone with Vitamin C rich botanical blend', 'Visibly reduces wrinkles by 41% with Polyphenols', 'Increase skin hydration by 34% with powerful blend of 5 types of Hyaluronic Acid', 'Ultra-nourishing mask packed with super-potent antioxidants', 'Megawatt glow in just 10 minutes*!', 'Free application brush included'],
             "accordion_1" => "Aqua/Water/Eau, Propanediol, Kaolin, Glycerin, C13-15 Alkane, Coco-Caprylate, Oryza Sativa Starch/Oryza Sativa (Rice) Starch, Ethylhexyl Olivate, Bis-C16-20 Isoalkoxy TMHDI/PEG-90 Copolymer, Sodium Acrylates Copolymer, 3-O-Ethyl Ascorbic Acid, Kunzea Pomifera Fruit Extract, Syzygium Luehmannii Fruit Extract, Tasmannia Lanceolata Fruit Extract, Terminalia Ferdinandiana Fruit Extract, Hyaluronic Acid, Hydrolyzed Hyaluronic Acid, Sodium Hyaluronate, Sodium Hyaluronate Crosspolymer, Hydrolyzed Glycosaminoglycans, Parfum (Citrus Paradisi Peel Oil/Citrus Paradisi (Grapefruit) Peel Oil, Citrus Sinensis Peel Oil Expressed/Citrus Sinensis (Orange) Peel Extract, Hibiscus Sabdaria Flower, Michelia Alba Flower Oil, Pelargonium Graveolens Leaf Oil, Rosmarinus Ocinalis Leaf Oil/Rosmarinus Ocinalis (Rosemary) Leaf Oil, Santalum Spicata Wood Oil, Simmondsia Chinensis Seed Oil/Simmondsia Chinensis (Jojoba) Seed Oil), Magnesium Aspartate, Zinc Gluconate, Copper Gluconate, Tocopherol, Allantoin, Helianthus Annuus Seed Oi/Helianthus Annuus (Sunflower) Seed Oil, Dicaprylyl Carbonate, Polyglyceryl-4 Oleate, Decyl Glucoside, Citric Acid, Phenoxyethanol, Ethylhexylglycerin, Sodium Benzoate, Potassium Sorbate, Limonene, Citronellol, Geraniol, Linalool, C.I. 60730/ Ext. D&C Violet No. 2, C.I. 16035/ D&C Red No. 40",
@@ -399,7 +401,7 @@ class PublicController extends Controller
             "image" => "/images/glow/2.png",
             "price" => 39,
             "type" => '',
-
+            
             "desc" => "A multi-tasking moisturiser powered by Australian Glow Berries complex and 2 forms of Vitamin C for a plump-looking and radiant complexion.",
             "tags" => ['Oil-soluble Vitamin C with 2X more antioxidant power', 'Glow Berries complex protects, nourishes & hydrates skin', 'Increase skin hydration by 34% with powerful blend of 5 types of Hyaluronic Acid', 'Ultra-nourishing mask packed with super-potent antioxidants', 'Megawatt glow in just 10 minutes*!', 'Free application brush included'],
             "accordion_1" => "Aqua, Dicaprylyl carbonate, Ascorbyl tetraisopalmitate, Squalane, C10-18 triglycerides, Glycerin, Octyldecyl oleate, Propanediol, Hydrogenated vegetable glycerides, Candelilla/jojoba/rice bran polyglyceryl-3 esters, Glyceryl stearate, Phenoxyethanol, Sodium acrylates copolymer, Cetearyl alcohol, Sodium stearoyl lactylate, Xanthan gum, Xylitylglucoside, Anhydroxylitol, Lecithin, Tocopherol, Xylitol, Allantoin, Ethylhexylglycerin, Sodium stearoyl glutamate, Tetrasodium glutamate diacetate, Helianthus annuus (Sunflower) seed oil, Limonene, Citric acid, Kunzea pomifera fruit extract, Syzygium luehmannii fruit extract, Tasmannia lanceolata fruit extract, Glucose, Terminalia ferdinandiana fruit extract, Papain, Davidsonia jerseyana fruit extract, Santalum acuminatum fruit extract, Citronellol, Geraniol, Linalool, 1,2-Hexanediol, Caprylyl glycol, Carbomer, Simmondsia chinensis seed oil/Simmondsia chinensis (Jojoba) seed oil, Citrus paradisi peel oil/Citrus paradisi (Grapefruit) peel oil, Citrus sinensis peel oil expressed/Citrus sinensis (Orange) peel extract, Hibiscus sabdariffa flower, Michelia alba flower oil, Pelargonium graveolens leaf oil, Rosmarinus officinalis leaf oil/Rosmarinus officinalis (Rosemary) leaf oil, Santalum spicata wood oil, Sodium benzoate, Algin, Potassium sorbate",
@@ -415,7 +417,7 @@ class PublicController extends Controller
             "image" => "/images/glow/3.png",
             "price" => 44,
             "type" => '',
-
+            
             "desc" => "Defeat dryness, dull skin & daily pollutants with this dreamy bi-phase serum.",
             "tags" => ['Vitamin C rich botanical blend brightens & evens skin tone', 'Glow Berries complex protects, nourishes & hydrates skin', 'Increase skin hydration by 34% with powerful blend of 5 types of Hyaluronic Acid', 'Ultra-nourishing mask packed with super-potent antioxidants', 'Boost collagen by up to +144% with Kakadu Plum', 'Free application brush included'],
             "accordion_1" => "Aqua/Water/Eau, Coco-Caprylate, C13-15 Alkane, Dicaprylyl Carbonate, Propanediol, Almond/Borage/ Linseed/Olive Acids/Glycerides, Caprylic/Capric Triglyceride, Glycerin, 3-O-Ethyl Ascorbic Acid, Kunzea Pomifera Fruit Extract, Syzygium Luehmannii Fruit Extract, Tasmannia Lanceolata Fruit Extract, Terminalia Ferdinandiana Fruit Extract, Achillea Millefolium Extract, Hyaluronic Acid, Hydrolyzed Hyaluronic Acid, Sodium Hyaluronate, Sodium Hyaluronate Crosspolymer, Hydrolyzed Glycosaminoglycans, Helianthus Annuus Seed Oil/Helianthus Annuus (Sunflower) Seed Oil, Tocopherol, Parfum (Citrus Paradisi Peel Oil/Citrus Paradisi (Grapefruit) Peel Oil, Citrus Sinensis Peel Oil Expressed/Citrus Sinensis (Orange) Peel Extract, Hibiscus Sabdaria Flower, Michelia Alba Flower Oil, Pelargonium Graveolens Leaf Oil, Rosmarinus Ocinalis Leaf Oil/ Rosmarinus Ocinalis (Rosemary) Leaf Oil, Santalum Spicata Wood Oil, Simmondsia Chinensis Seed Oil/Simmondsia Chinensis (Jojoba) Seed Oil), Xanthan Gum, Citric Acid, Limonene, Citronellol, Geraniol, Linalool, Pentylene Glycol, Butylene Glycol, Sodium Benzoate, Potassium Sorbate, CI 60730/Ext. D&C Violet No. 2.",
@@ -431,7 +433,7 @@ class PublicController extends Controller
             "image" => "/images/glow/4.png",
             "price" => 34,
             "type" => '',
-
+            
             "desc" => "Glow beyond bright skin with our advanced, triple-action enzyme powder exfoliant.",
             "tags" => ['Vitamin C rich botanical blend brightens & evens skin tone', 'Glow Berries complex protects, nourishes & hydrates skin', 'Increase skin hydration by 34% with powerful blend of 5 types of Hyaluronic Acid', 'Ultra-nourishing mask packed with super-potent antioxidants', 'Boost collagen by up to +144% with Kakadu Plum', 'Free application brush included'],
             "accordion_1" => "Oryza Sativa Starch/Oryza Sativa (Rice) Starch, Kaolin, Sodium Cocoyl Glutamate, Cellulose, Oryza Sativa Powder/Oryza Sativa (Rice) Powder, Glycerin, Macadamia Ternifolia Seed Oil, Kunzea Pomifera Fruit Extract, Syzygium Luehmannii Fruit Extract, Tasmannia Lanceolata Fruit Extract, Santalum Acuminatum Fruit Extract, Davidsonia Jerseyana Fruit Extract, Terminalia Ferdinandiana Fruit Extract, Papain, Aloe Barbadensis Leaf Juice, Vaccinium Myrtillus Fruit Extract, Cassia Angustifolia Seed Polysaccharide, Pichia/Resveratrol Ferment Extract, 3-O-Ethyl Ascorbic Acid, Tocopherol, Helianthus Annuus Seed Oil/Helianthus Annuus (Sunflower) Seed Oil, Parfum (Citrus Paradisi Peel Oil/Citrus Paradisi (Grapefruit) Peel Oil, Citrus Sinensis Peel Oil Expressed/Citrus Sinensis (Orange) Peel Extract, Hibiscus Sabdariffa Flower, Michelia Alba Flower Oil, Pelargonium Graveolens Leaf Oil, Rosmarinus Officinalis Leaf Oil/Rosmarinus Officinalis (Rosemary) Leaf Oil, Santalum Spicata Wood Oil, Simmondsia Chinensis Seed Oil/Simmondsia Chinensis (Jojoba) Seed Oil), Maltodextrin, Glucose, Gluconolactone, Citric Acid, Aqua/Water/Eau, Phenoxyethanol, Ethylhexylglycerin, Sodium Benzoate, Potassium Sorbate, Limonene, CI 16035/ D&C Red No. 40, CI 60730/Ext. D&C Violet No. 2",
@@ -446,7 +448,7 @@ class PublicController extends Controller
             "image" => "/images/glow/5.png",
             "price" => 74,
             "type" => '',
-
+            
             "desc" => "The ultimate dewy-skin duo to firm, plump and supercharge your glow. Packed with luxurious botanical extracts and potent actives, the plush, dazzling radiance of your dreams is made attainable with this indulgent set.",
             "tags" => ['Vitamin C rich botanical blend brightens & evens skin tone', 'Glow Berries complex protects, nourishes & hydrates skin', 'Increase skin hydration by 34% with powerful blend of 5 types of Hyaluronic Acid', 'Ultra-nourishing mask packed with super-potent antioxidants', 'Boost collagen by up to +144% with Kakadu Plum', 'Free application brush included'],
             "accordion_1" => "Oryza Sativa Starch/Oryza Sativa (Rice) Starch, Kaolin, Sodium Cocoyl Glutamate, Cellulose, Oryza Sativa Powder/Oryza Sativa (Rice) Powder, Glycerin, Macadamia Ternifolia Seed Oil, Kunzea Pomifera Fruit Extract, Syzygium Luehmannii Fruit Extract, Tasmannia Lanceolata Fruit Extract, Santalum Acuminatum Fruit Extract, Davidsonia Jerseyana Fruit Extract, Terminalia Ferdinandiana Fruit Extract, Papain, Aloe Barbadensis Leaf Juice, Vaccinium Myrtillus Fruit Extract, Cassia Angustifolia Seed Polysaccharide, Pichia/Resveratrol Ferment Extract, 3-O-Ethyl Ascorbic Acid, Tocopherol, Helianthus Annuus Seed Oil/Helianthus Annuus (Sunflower) Seed Oil, Parfum (Citrus Paradisi Peel Oil/Citrus Paradisi (Grapefruit) Peel Oil, Citrus Sinensis Peel Oil Expressed/Citrus Sinensis (Orange) Peel Extract, Hibiscus Sabdariffa Flower, Michelia Alba Flower Oil, Pelargonium Graveolens Leaf Oil, Rosmarinus Officinalis Leaf Oil/Rosmarinus Officinalis (Rosemary) Leaf Oil, Santalum Spicata Wood Oil, Simmondsia Chinensis Seed Oil/Simmondsia Chinensis (Jojoba) Seed Oil), Maltodextrin, Glucose, Gluconolactone, Citric Acid, Aqua/Water/Eau, Phenoxyethanol, Ethylhexylglycerin, Sodium Benzoate, Potassium Sorbate, Limonene, CI 16035/ D&C Red No. 40, CI 60730/Ext. D&C Violet No. 2",
@@ -457,8 +459,72 @@ class PublicController extends Controller
 
     ];
 
+
+
     public function homepage()
     {
-        return view('homepage');
+        $products = array_slice($this->products, -16);
+        $set1 = array_slice($products, 0, 4);
+        $set2 = array_slice($products, 4, 4);
+        $set3 = array_slice($products, 8, 4);
+        $set4 = array_slice($products, 12, 4);
+        return view('homepage', compact('set1', 'set2', 'set3', 'set4'));
+    }
+
+
+    public function all()
+    {
+        $categories = collect($this->products)->pluck('categories')->unique()->values();
+        return view('all', ['products' => $this->products, 'categories' => $categories]);
+    }
+
+
+    public function details($id)
+    {
+        $products = array_slice($this->products, -4);
+        $product = collect($this->products)->firstWhere('id', $id);
+
+
+        return view('details', [
+            'product' => $product,
+            'products' => $products,
+        ]);
+    }
+
+
+    public function filteredProducts(Request $request)
+    {
+        $filteredProducts = collect($this->products);
+
+        if ($request->has('categories') && count($request->categories) > 0) {
+            $filteredProducts = $filteredProducts->filter(function ($product) use ($request) {
+                return in_array(strtolower($product['categories']), array_map('strtolower', $request->categories));
+            });
+        }
+
+        if ($request->has('prices') && count($request->prices) > 0) {
+            $filteredProducts = $filteredProducts->filter(function ($product) use ($request) {
+                $price = $product['price'];
+                foreach ($request->prices as $range) {
+                    if ($range === 'under-25' && $price < 25) return true;
+                    if ($range === '25-50' && $price >= 25 && $price <= 50) return true;
+                    if ($range === '50-100' && $price > 50 && $price <= 100) return true;
+                }
+                return false;
+            });
+        }
+
+        return response()->json($filteredProducts->values());
+    }
+
+
+    public function filterByTag($tag)
+    {
+
+        $filteredProducts = collect($this->products)->filter(function ($product) use ($tag) {
+            return in_array(strtolower($tag), array_map('strtolower', $product['tags'] ?? []));
+        });
+
+        return view('products_by_tag', ['products' => $filteredProducts, 'tag' => $tag]);
     }
 }
