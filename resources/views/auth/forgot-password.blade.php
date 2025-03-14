@@ -27,7 +27,7 @@
                         <div class="mb-3">
                             <input type="email" name="email" class="form-control" placeholder="Email">
                         </div>
-                        <button type="submit" class="btn btn-custom w-100 mt-3">Send Reset Link</button>
+                        <button type="submit" class="btn btn-outline-custom w-100 mt-3">Send Reset Link</button>
                     </form>
                 </div>
             </div>

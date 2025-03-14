@@ -41,7 +41,7 @@
                             <input type="password" name="password_confirmation" class="form-control" required placeholder="Confirm New Password">
                         </div>
 
-                        <button type="submit" class="btn btn-custom w-100 mt-3">Reset Password</button>
+                        <button type="submit" class="btn btn-outline-custom w-100 mt-3">Reset Password</button>
                     </form>
                 </div>
             </div>

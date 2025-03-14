@@ -45,7 +45,7 @@
                                     <label class="form-label small">New Password</label>
                                     <input type="password" class="form-control" placeholder="New Password">
                                 </div>
-                                <button type="submit" class="btn btn-custom w-100 py-2">Update Password</button>
+                                <button type="submit" class="btn btn-outline-custom w-100 py-2">Update Password</button>
                             </form>
                         </section>
                         <section id="addresses" class="content-section">

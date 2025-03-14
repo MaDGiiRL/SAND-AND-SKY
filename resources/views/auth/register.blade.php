@@ -43,7 +43,7 @@
                         <button class="btn btn-light  border d-flex align-items-center justify-content-center">
                             <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="me-2" width="20"> <span class="d-md-block d-none">Register With Google</span>
                         </button>
-                        <a href="" class="btn btn-dark border d-flex align-items-center justify-content-center">
+                        <a href="{{ route('github.login') }}" class="btn btn-dark border d-flex align-items-center justify-content-center">
                             <i class="bi bi-github pe-2"></i> <span class="d-md-block d-none">Register With GitHub</span>
                         </a>
                     </div>
