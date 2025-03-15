@@ -29,7 +29,7 @@
                     </div>
                     @endforeach
                 </div>
-                <a href="{{route('homepage')}}" class="btn btn-outline-dark w-50 mt-5">Back To Homepage <i class="bi bi-arrow-right"></i></a>
+                <a href="{{route('all')}}" class="btn btn-outline-dark w-50 mt-5">Back To Shop <i class="bi bi-arrow-right"></i></a>
             </div>
         </div>
     </div>
