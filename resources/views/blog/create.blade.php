@@ -30,18 +30,8 @@
                         <div class="alert alert-warning" role="alert">
                             Please review your article carefully before submitting. Once submitted, it will be visible to others.
                         </div>
-                        <button type="submit" class="btn btn-custom w-100 mt-2">Submit Review</button>
+                        <button type="submit" class="btn btn-dark w-100 mt-2">Submit Review</button>
                     </form>
-
-                    @if($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
                     @if(session('message'))
                     <div class="alert alert-success">
                         {{ session('message') }}

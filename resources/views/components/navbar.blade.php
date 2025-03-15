@@ -12,6 +12,7 @@
                         <li class="nav-item"><a class="nav-link" href="{{route('all')}}">Shop</a></li>
                         @auth
                         <li class="nav-item"><a class="nav-link" href="">Skin Quiz</a></li>
+                        <li class="nav-item"><a class="nav-link" href="">Create Your Kit</a></li>
                         @endauth
                         <a class="nav-link" href="{{route('blog.index')}}">Blog</a>
                         <li class="nav-item"><a class="nav-link" href="">About</a></li>

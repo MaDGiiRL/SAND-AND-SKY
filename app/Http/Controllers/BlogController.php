@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controllers\HasMiddleware;
+use App\Http\Requests\BlogRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Routing\Controllers\HasMiddleware;
 
 class BlogController extends Controller implements HasMiddleware
 {
@@ -39,15 +40,8 @@ class BlogController extends Controller implements HasMiddleware
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BlogRequest $request)
     {
-
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'body' => 'required|string',
-            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp',
-        ]);
-
 
         Blog::create([
             'title' => $request->title,
