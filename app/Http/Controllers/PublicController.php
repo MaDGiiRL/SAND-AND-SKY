@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Review;
 use App\Mail\ContactMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Routing\Controllers\HasMiddleware;
@@ -560,29 +561,46 @@ class PublicController extends Controller implements HasMiddleware
 
     public function submit(Request $request)
     {
-        // Validazione dei dati del form
-    $validated = $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|email|max:255',
-        'body' => 'required|string|min:10',
-        'file' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048' // Il file ora è opzionale (nullable)
-    ]);
 
-    // Controllo se un file è stato caricato
-    $file = $request->hasFile('file') ? $request->file('file')->store('file', 'public') : null;
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'body' => 'required|string|min:10',
+            'file' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048'
+        ]);
 
-    // Preparazione contenuto email
-    $content = [
-        'name' => $validated['name'],
-        'email' => $validated['email'],
-        'body' => $validated['body'],
-        'file' => $file
-    ];
+        $file = $request->hasFile('file') ? $request->file('file')->store('file', 'public') : null;
 
-    // Invio dell'email
-    Mail::to('sandandsky@noreply.it')->send(new ContactMail($content));
+        $content = [
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'body' => $validated['body'],
+            'file' => $file
+        ];
 
-    // Redirect con messaggio di successo
-    return redirect(route('contact'))->with('message', 'Email sent! We will respond soon.');
+        Mail::to('sandandsky@noreply.it')->send(new ContactMail($content));
+
+        return redirect(route('contact'))->with('message', 'Email sent! We will respond soon.');
+    }
+
+    public function account()
+    {
+
+        return view('account');
+    }
+
+    public function user_destroy()
+    {
+        $user = Auth::user();
+
+        foreach ($user->blogs as $blog) {
+            $blog->update([
+                'user_id' => null
+            ]);
+        }
+
+        $user->delete();
+
+        return redirect(route('homepage'))->with('message', 'Account deleted.');
     }
 }

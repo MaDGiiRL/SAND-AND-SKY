@@ -25,12 +25,14 @@ Route::get('/blog-index', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
 Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
 Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
-Route::get('/user/blog/{id}', [BlogController::class, 'user_blog'])->name('blog.user');
 
 Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store');
-
 
 Route::get('/review/index', [ReviewController::class, 'index'])->name('review.index');
 Route::get('/review/create', [ReviewController::class, 'create'])->name('review.create');
 Route::post('/review/store', [ReviewController::class, 'store'])->name('review.store');
+
+Route::get('/user/blog/{id}', [BlogController::class, 'user_blog'])->name('blog.user');
 Route::get('/user/review/{id}', [ReviewController::class, 'user_review'])->name('review.user');
+Route::delete('/user/destroy', [PublicController::class, 'user_destroy'])->name('user.destroy');
+Route::get('/my-account', [PublicController::class, 'account'])->name('account');
