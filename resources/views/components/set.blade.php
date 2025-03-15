@@ -7,7 +7,7 @@
                 Discover the rejuvenating power of the Sand & Sky Tasmanian Spring Water collection at Oz Hair and Beauty. This unique range harnesses the pure, mineral-rich waters of Tasmania to deliver intense hydration and revitalisation for your skin. Perfect for those seeking a natural glow, these products are designed to quench thirsty skin, leaving it
             </p>
 
-            <div class="text-center pt-2">
+            <div class="text-center pt-1">
                 <!-- Tags -->
                 <div class="mb-3">
                     <span class="tag m-1"># GreatGift</span>
@@ -19,7 +19,7 @@
 
                 <!-- Buttons -->
                 <div class="d-flex justify-content-start align-items-center mt-md-5  gap-3">
-                    <a href="" class="btn btn-outline-dark w-50">Shop Now</a>
+                    <a href="{{route('all')}}" class="btn btn-outline-dark w-50">Shop Now</a>
                     <span class="explore">Explore More →</span>
                 </div>
             </div>
@@ -55,7 +55,7 @@
 
                 <!-- Buttons -->
                 <div class="d-flex justify-content-start align-items-center mt-md-5 gap-3">
-                    <a href="" class="btn btn-outline-dark w-50">Shop Now</a>
+                    <a href="{{route('all')}}" class="btn btn-outline-dark w-50">Shop Now</a>
                     <span class="explore">Explore More →</span>
                 </div>
             </div>

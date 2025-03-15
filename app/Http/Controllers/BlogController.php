@@ -13,7 +13,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::orderBy('created_at', 'desc')->take(4)->get();
+        $blogs = Blog::with('user')->orderBy('created_at', 'desc')->paginate(5); // Aggiunto ->get()
         return view('blog.index', compact('blogs'));
     }
 
@@ -34,7 +34,7 @@ class BlogController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'body' => 'required|string',
-            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp',
         ]);
 
 
@@ -52,6 +52,8 @@ class BlogController extends Controller
     public function show($id)
     {
         $blog = Blog::findOrFail($id);
-        return view('blog.show', compact('blog'));
+        $latestBlogs = Blog::orderBy('created_at', 'desc')->take(5)->get(); // Prende gli ultimi 5 articoli
+    
+        return view('blog.show', compact('blog', 'latestBlogs'));
     }
 }

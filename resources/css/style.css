@@ -12,6 +12,14 @@ body {
     color: #383838
 }
 
+.link-red {
+    color: #e83e71;
+    transition: all 1s;
+}
+
+.link-red:hover {
+    color: black
+}
 
 ul {
     list-style: none;
@@ -38,6 +46,11 @@ h3 {
     --bs-btn-disabled-bg: transparent;
     --bs-btn-disabled-border-color: rgb(232, 62, 113);
     --bs-gradient: none;
+}
+
+.btn-dark:hover {
+    background: #e83e71;
+    border-color: #e83e71;
 }
 
 /* Auth */
@@ -125,6 +138,7 @@ a.nav-link:hover {
 }
 
 /* Header */
+
 .bg-first {
     background-image: url(/public/images/Banner.png);
     height: 60vh;
@@ -540,22 +554,36 @@ button#apply-filters:hover {
 
 
 /* Blog Index */
+.bg-custom{
+    background-image: url(/public/images/131895760_2574494442849699_2292006692977964393_n.jpg);
+    background-size: contain;
+    background-attachment:fixed;
+    background-position: right;
+}
 .comments p {
     text-align: justify !important;
 }
 
 .body-article {
-    font-family: "Montserrat";
+    font-family: "Poppins";
     color: rgb(100, 100, 100);
 }
-
+.body-article a{
+    color:rgb(232, 62, 113);
+    transition: all 1s;
+}
+.body-article a:hover{
+    color:black
+}
 .body-article h2,
 .body-article h3 {
     color: #383838;
     text-transform: uppercase;
-    text-align: center;
     padding-top: 20px;
     font-family: "Poppins";
+    font-size: 30px;
+    letter-spacing: 0;
+    text-transform: none;
 }
 
 .link-article {
