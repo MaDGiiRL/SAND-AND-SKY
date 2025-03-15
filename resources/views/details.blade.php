@@ -158,20 +158,23 @@
                 @foreach ($reviews as $review)
                 <div class="review-card">
                     <div class="review-header">
-                        <i class="bi bi-person-circle pb-4 fs-3"></i>
                         <div>
-                            <a href="{{route('review.user' , $review->user->id)}}" class="link-dark">
+                            <div class="d-flex flex-row align-items-center">
+                                <i class="bi bi-person-circle  fs-3 me-2 pb-2"></i>
+                                <a href="{{route('review.user' , $review->user)}}" class="link-red">
                                 <h6>{{ $review->user->name}}</h6>
-                            </a>
+                                </a>
+                            </div>
                             <span class="text-muted">✔️ Verified Reviewer</span>
                             <p class="review-stars">★★★★★</p>
                         </div>
                     </div>
                     <h5 class="text-uppercase">{{ $review->title}}</h5>
                     <p>{{ $review->comment }}</p>
-                    <img src="{{Storage::url($review->img)}}" width="200px">
+                    @if ($review->img)
+                    <img src="{{ Storage::url($review->img) }}" width="200px">
+                    @endif
                     <p class="review-date pt-4">{{$review->created_at}}</p>
-
                 </div>
                 @endforeach
                 <div class="col-12 text-center">

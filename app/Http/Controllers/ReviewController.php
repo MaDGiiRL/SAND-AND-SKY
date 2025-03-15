@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\User;
 use App\Models\Review;
 use Illuminate\Http\Request;
+use App\Http\Requests\ReviewRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Controllers\HasMiddleware;
 
@@ -33,14 +34,14 @@ class ReviewController extends Controller implements HasMiddleware
     {
         $blogs = Blog::with('user')->orderBy('created_at', 'desc')->paginate(5); // Aggiunto ->get()
         return view('review.create', compact('blogs'));
-
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ReviewRequest $request)
     {
+
         // {Auth::user()->reviews()->create altro metodo
         Review::create([
             'name' => $request->name,
@@ -49,14 +50,6 @@ class ReviewController extends Controller implements HasMiddleware
             'img' => $request->hasFile('img') ? $request->file('img')->store('images', 'public') : null,
             'rating' => $request->rating,
             'user_id' => Auth::user()->id,
-        ]);
-
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'title' => 'required|string|max:255',
-            'comment' => 'required|string',
-            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif',
-            'rating' => 'required',
         ]);
 
         return redirect(route('review.index'))->with('message', 'Comment sent.');

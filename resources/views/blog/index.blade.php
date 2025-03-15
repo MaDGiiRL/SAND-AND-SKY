@@ -19,7 +19,7 @@
             @if ($loop->iteration % 2 == 1)
             <div class="row my-5">
                 <div class="col-md-6 p-md-5 pt-3 pt-md-0 order-last">
-                    <h6 class="data pb-4">{{$blog->created_at->format('d F, Y')}} by {{$blog->user->name ?? 'Anonymous'}}</h6>
+                    <div class="d-flex flex-row"><p class="small">{{$blog->created_at->format('d F, Y')}} by </p> <a href="{{route('blog.user' , $blog->user->id)}}"> <h6 class="pb-4 ps-1 link-red"> {{$blog->user->name ?? 'Anonymous'}}</h6></a></div>
                     <h2 class="pb-4">{{$blog->title}}</h2>
                     <div> {!! Str::limit(strip_tags($blog->body), 400, '...') !!}</div>
                     <a href="{{ route('blog.show', ['id' => $blog->id]) }}" class="btn btn-dark text-center mt-3">Show More</a>
@@ -35,7 +35,7 @@
                     <img src="{{Storage::url($blog->img)}}" class="img-fluid">
                 </div>
                 <div class="col-md-6 p-md-5 pt-3 pt-md-0 order-last">
-                    <h6 class="data pb-4">{{$blog->created_at->format('d F, Y')}} by {{$blog->user->name ?? 'Anonymous'}}</h6>
+                    <div class="d-flex flex-row"><p class="small">{{$blog->created_at->format('d F, Y')}} by </p> <a href="{{route('blog.user' , $blog->user->id)}}"> <h6 class="pb-4 ps-1 link-red"> {{$blog->user->name ?? 'Anonymous'}}</h6></a></div>
                     <h2 class="pb-4">{{$blog->title}}</h2>
 
                     <div> {!! Str::limit(strip_tags($blog->body), 400, '...') !!}</div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\User;
 use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 use App\Http\Requests\BlogRequest;
@@ -60,5 +61,14 @@ class BlogController extends Controller implements HasMiddleware
         $latestBlogs = Blog::orderBy('created_at', 'desc')->take(5)->get(); // Prende gli ultimi 5 articoli
 
         return view('blog.show', compact('blog', 'latestBlogs'));
+    }
+
+
+    public function user_blog($id)
+    {
+        $user = User::find($id);
+        $blogs = $user->blogs;
+
+        return view('blog.user', compact('blogs', 'user'));
     }
 }

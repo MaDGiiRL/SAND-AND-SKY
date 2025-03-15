@@ -11,8 +11,8 @@
         }
     </style>
     <div class="bg-register">
-        <div class="container  pt-5 mt-5">
-            <div class="row-custom bg-white rounded-pill border shadow justify-content-center overflow-hidden px-5">
+        <div class="container pt-5 mt-5">
+            <div class="row-custom bg-white  border shadow justify-content-center overflow-hidden px-5">
 
                 <div class="col-12 col-md-6 d-flex justify-content-center p-5 flex-column  align-items-center pt-5" data-aos="fade-up"
                     data-aos-easing="linear"
@@ -30,32 +30,32 @@
                     <form method="POST" action="{{route('review.store')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <input type="text" class="form-control @error('title') is-invalid @enderror" title="title" value="{{old('title')}}" placeholder="Your title">
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{old('name')}}" placeholder="Your Name">
+                            @error('name')
+                            <div class="alert alert-danger">{{$message}}</div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{old('title')}}" placeholder="Title">
                             @error('title')
                             <div class="alert alert-danger">{{$message}}</div>
                             @enderror
                         </div>
 
                         <div class="mb-3">
-                            <input type="text" class="form-control @error('title') is-invalid @enderror" title="title" value="{{old('title')}}" placeholder="Title">
-                            @error('title')
-                            <div class="alert alert-danger">{{$message}}</div>
-                            @enderror
-                        </div>
-
-                        <div class="mb-3">
-                            <textarea title="comment" cols="30" rows="4" class="form-control" placeholder="Your Comment">{{old('comment')}}</textarea>
+                            <textarea name="comment" cols="30" rows="4" class="form-control" placeholder="Your Comment">{{old('comment')}}</textarea>
                             @error('comment')
                             <div class="alert alert-danger">{{$message}}</div>
                             @enderror
                         </div>
 
                         <div class="mb-3">
-                            <input type="file" class="form-control" title="img">
+                            <input type="file" class="form-control"name="img">
                         </div>
 
                         <div class="mb-3">
-                            <select title="rating" class="form-control @error('rating') is-invalid @enderror">
+                            <select name="rating" class="form-control @error('rating') is-invalid @enderror">
                                 <option value="" disabled selected>Rate Us ★</option>
                                 @for($i = 1; $i <= 5; $i++)
                                     <option value="{{$i}}">{{$i}} ★</option>
@@ -73,15 +73,7 @@
                         {{ session('message')}}
                     </div>
                     @endif
-                    @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
+
                 </div>
             </div>
         </div>

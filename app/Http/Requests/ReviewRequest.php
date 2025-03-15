@@ -11,7 +11,7 @@ class ReviewRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,8 +22,20 @@ class ReviewRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'nullable|string|max:255',
+            'title' => 'required|string|max:255',
+            'comment' => 'required|string',
+            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'rating' => 'required',
         ];
     }
-    
+
+    public function messages()
+    {
+        return [
+            'required' => 'Field required.',
+            'img.image' => 'File must an image.',
+            'img.mimes' => 'File must be jpeg, png, jpg, gif, wep.'
+        ];
+    }
 }

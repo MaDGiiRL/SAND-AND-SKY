@@ -2,6 +2,15 @@ body {
     font-family: "Poppins";
 }
 
+a {
+    color: #e83e71;
+    transition: all 1s;
+}
+
+a:hover {
+    color: black
+}
+
 .link-pink {
     color: #F5A3B7;
     transition: all 1s;
@@ -558,12 +567,13 @@ button#apply-filters:hover {
 
 
 /* Blog Index */
-.bg-custom{
+.bg-custom {
     background-image: url(/public/images/131895760_2574494442849699_2292006692977964393_n.jpg);
     background-size: contain;
-    background-attachment:fixed;
+    background-attachment: fixed;
     background-position: right;
 }
+
 .comments p {
     text-align: justify !important;
 }
@@ -572,13 +582,16 @@ button#apply-filters:hover {
     font-family: "Poppins";
     color: rgb(100, 100, 100);
 }
-.body-article a{
-    color:rgb(232, 62, 113);
+
+.body-article a {
+    color: rgb(232, 62, 113);
     transition: all 1s;
 }
-.body-article a:hover{
-    color:black
+
+.body-article a:hover {
+    color: black
 }
+
 .body-article h2,
 .body-article h3 {
     color: #383838;

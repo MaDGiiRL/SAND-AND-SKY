@@ -24,6 +24,7 @@ Route::get('/blog-index', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
 Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
 Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('/user/blog/{id}', [BlogController::class, 'user_blog'])->name('blog.user');
 
 Route::get('/review/index', [ReviewController::class, 'index'])->name('review.index');
 Route::get('/review/create', [ReviewController::class, 'create'])->name('review.create');
