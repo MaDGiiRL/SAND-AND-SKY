@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\User;
 use App\Models\Review;
 use Illuminate\Http\Request;
@@ -30,7 +31,9 @@ class ReviewController extends Controller implements HasMiddleware
      */
     public function create()
     {
-        return view('review.create');
+        $blogs = Blog::with('user')->orderBy('created_at', 'desc')->paginate(5); // Aggiunto ->get()
+        return view('review.create', compact('blogs'));
+
     }
 
     /**

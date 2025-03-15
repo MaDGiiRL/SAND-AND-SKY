@@ -150,7 +150,7 @@
 
 
         <div class="text-center mb-3">
-            <a class="btn btn-outline-dark write-review-btn my-5 " href="{{ route('review.index')}}">Write a Review <i class="bi bi-arrow-right-circle p-1"></i></a>
+            <a class="btn btn-outline-dark write-review-btn my-5 " href="{{route('review.create')}}">Write a Review <i class="bi bi-arrow-right-circle p-1"></i></a>
         </div>
 
         <div class="row justify-content-center">
