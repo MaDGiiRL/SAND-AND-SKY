@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\CommentController;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 Route::get('/shop/all', [PublicController::class, 'all'])->name('all');
@@ -25,6 +26,9 @@ Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create
 Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
 Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
 Route::get('/user/blog/{id}', [BlogController::class, 'user_blog'])->name('blog.user');
+
+Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store');
+
 
 Route::get('/review/index', [ReviewController::class, 'index'])->name('review.index');
 Route::get('/review/create', [ReviewController::class, 'create'])->name('review.create');

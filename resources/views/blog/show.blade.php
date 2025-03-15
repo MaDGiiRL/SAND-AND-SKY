@@ -32,6 +32,45 @@
                 <div class="text-center mb-5">
                     <a href="{{ route('blog.index') }}" class="btn btn-dark text-center link-light">Back to Blog</a>
                 </div>
+
+
+                <div class="card-body p-4">
+                    <h4 class="text-center mb-4 pb-2">Comments on {{ $blog->title }} </h4>
+                    <div class="row">
+
+                        <form method="POST" action="{{route('comment.store')}}">
+                            @csrf
+                            <input type="text" name="body" class="form-control pb-5 p-3" placeholder="Enter your comment...">
+                            <input type="text" value="{{$blog->id}}" name="blog_id" class="d-none">
+                            <button type="submit" class="btn btn-outline-custom mt-3">Send Comment</button>
+                        </form>
+
+                        <div class="col-12">
+                        @foreach ($blog->comments as $comment)
+                            <div class="shadow border roudend p-5 comment-card my-3">
+                                <div class="comment-header">
+                                    <div>
+                                        <div class="d-flex flex-row align-items-center">
+                                            <i class="bi bi-person-circle  fs-3 me-2 pb-2"></i>
+                                            <a href="" class="link-red">
+                                                <h6>{{ $comment->user->name}}</h6>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>{{ $comment->body}}</p>
+                                <p class="comment-date">{{$comment->created_at}}</p>
+                            </div>
+                            @endforeach
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+
             </div>
 
             <!-- Sidebar Sticky -->
@@ -52,6 +91,55 @@
 
         </div>
     </div>
+    <style>
+        .form-color {
 
+            background-color: #fafafa;
+
+        }
+
+        .form-control {
+
+            height: 48px;
+            border-radius: 25px;
+        }
+
+        .form-control:focus {
+            color: #495057;
+            background-color: #fff;
+            border-color: #35b69f;
+            outline: 0;
+            box-shadow: none;
+            text-indent: 10px;
+        }
+
+        .c-badge {
+            background-color: #35b69f;
+            color: white;
+            height: 20px;
+            font-size: 11px;
+            width: 92px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2px;
+        }
+
+        .comment-text {
+            font-size: 13px;
+        }
+
+        .wish {
+
+            color: #35b69f;
+        }
+
+
+        .user-feed {
+
+            font-size: 14px;
+            margin-top: 12px;
+        }
+    </style>
 </x-layout>
-
