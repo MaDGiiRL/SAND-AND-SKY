@@ -15,7 +15,8 @@
                         <li class="nav-item"><a class="nav-link" href="">Create Your Kit</a></li>
                         @endauth
                         <a class="nav-link" href="{{route('blog.index')}}">Blog</a>
-                        <li class="nav-item"><a class="nav-link" href="">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('about')}}">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Contact</a></li>
                     </ul>
                     <a class="navbar-brand" href="{{ route('homepage') }}">
                         <svg height="24" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" version="1.0" viewBox="0 0 2056.8 370.3">

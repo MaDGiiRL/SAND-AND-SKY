@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Review;
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Routing\Controllers\HasMiddleware;
 
 class PublicController extends Controller implements HasMiddleware
 {
@@ -498,9 +500,12 @@ class PublicController extends Controller implements HasMiddleware
         $product = collect($this->products)->firstWhere('id', $id);
 
 
+        $reviews = Review::all();
+
         return view('details', [
             'product' => $product,
             'products' => $products,
+            'reviews' => $reviews
         ]);
     }
 
@@ -540,5 +545,44 @@ class PublicController extends Controller implements HasMiddleware
         });
 
         return view('products_by_tag', ['products' => $filteredProducts, 'tag' => $tag]);
+    }
+
+
+    public function about()
+    {
+        return view('about');
+    }
+
+    public function contact()
+    {
+        return view('contact');
+    }
+
+    public function submit(Request $request)
+    {
+        // Validazione dei dati del form
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|max:255',
+        'body' => 'required|string|min:10',
+        'file' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048' // Il file ora è opzionale (nullable)
+    ]);
+
+    // Controllo se un file è stato caricato
+    $file = $request->hasFile('file') ? $request->file('file')->store('file', 'public') : null;
+
+    // Preparazione contenuto email
+    $content = [
+        'name' => $validated['name'],
+        'email' => $validated['email'],
+        'body' => $validated['body'],
+        'file' => $file
+    ];
+
+    // Invio dell'email
+    Mail::to('sandandsky@noreply.it')->send(new ContactMail($content));
+
+    // Redirect con messaggio di successo
+    return redirect(route('contact'))->with('message', 'Email sent! We will respond soon.');
     }
 }
