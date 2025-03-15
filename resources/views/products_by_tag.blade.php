@@ -8,9 +8,12 @@
                     @if (!empty($product['discount']))
                     <span class="discount-badge">-{{ $product['discount'] }}%</span>
                     @endif
-                    <a href="{{route('details', ['id' => $product['id'], 'name' => $product['name'] ])}}">
-                        <img src="{{ $product['image'] }}" class="card-img-top img-fluid" alt="{{ $product['name'] }}">
-                    </a>
+                    <div class="container-wrap">
+                        <a href="{{route('details', ['id' => $product['id'], 'name' => $product['name'] ])}}">
+                            <img src="{{ $product['image'] }}" class="image" alt="{{ $product['name'] }}">
+                            <img src="{{ $product['image_hover'] }}" class="hover-image" alt="Hover Image">
+                        </a>
+                    </div>
                     <div class="card-body">
                         <a href="{{route('details', ['id' => $product['id'], 'name' => $product['name'] ])}}">
                             <h6 class="card-title">{{ $product['name'] }}</h6>

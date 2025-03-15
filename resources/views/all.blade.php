@@ -60,7 +60,7 @@
                     </div>
                 </div>
                 @endforeach
-                
+
         </div>
     </div>
 
@@ -100,9 +100,13 @@
                 <div class="col-6 col-md-4 my-3">
                     <div class="card position-relative">
                         ${discountBadge}
-                        <a href="/details/${product.id}/${product.name}">
-                            <img src="${product.image}" class="card-img-top img-fluid" alt="${product.name}">
-                        </a>
+                        <div class="container-wrap">
+                            <a href="{{route('details', ['id' => $product['id'], 'name' => $product['name'] ])}}">
+                                <img src="${product.image}" class="image" alt="${product.image}">
+                                <img src="${product.image_hover}" class="hover-image" alt="${product.image_hover}">
+                            </a>
+                        </div>
+                        
                         <div class="card-body">
                             <a href="/details/${product.id}/${product.name}">
                                 <h6 class="card-title">${product.name}</h6>
