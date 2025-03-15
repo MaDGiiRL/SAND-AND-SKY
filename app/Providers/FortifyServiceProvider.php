@@ -55,7 +55,7 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         //* gestisco le due viste per forgot e reset
-        
+
         Fortify::requestPasswordResetLinkView(function () {
             return view('auth.forgot-password');
         });
@@ -64,5 +64,9 @@ class FortifyServiceProvider extends ServiceProvider
             return view('auth.reset-password', ['request' => $request]);
         });
 
+        //* Email di verifica
+        Fortify::verifyEmailView(function () {
+            return view('auth.verify-email');
+        });
     }
 }

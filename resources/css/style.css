@@ -21,6 +21,10 @@ body {
     color: black
 }
 
+.text-red {
+    color: #e83e71;
+}
+
 ul {
     list-style: none;
 }

@@ -1,4 +1,4 @@
-<x-layout title="Register - Bloom Beauty">
+<x-layout title="Register - Sand & Sky">
     <div class="bg-register pb-5">
         <div class="container py-5 my-5 py-md-0 my-md-0 register auth">
             <div class="row justify-content-center p-5 mt-4 mt-md-0">

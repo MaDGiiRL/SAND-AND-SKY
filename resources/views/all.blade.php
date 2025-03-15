@@ -1,4 +1,4 @@
-<x-layout title="Shop All - Bloom Beauty">
+<x-layout title="Shop All - Sand & Sky">
     <div class="container mt-4 min-vh-100">
         <div class="row">
             <aside class="col-md-3 filter-section">

@@ -17,7 +17,7 @@
                 <img src="/images/0x0.png" width="100px" class="pb-3">
                 <p>Discover nature’s beauty with our natural care products.</p>
                 <p><i class="bi bi-telephone link-pink"></i> +38 050 123 45 67</p>
-                <p><i class="bi bi-envelope-fill link-pink"></i> bloombt@example.com</p>
+                <p><i class="bi bi-envelope-fill link-pink"></i> sandandsky@example.com</p>
                 <p><i class="bi bi-geo-alt-fill link-pink"></i> Padova, Italy</p>
             </div>
 

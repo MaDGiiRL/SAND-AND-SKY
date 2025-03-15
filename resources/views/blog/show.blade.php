@@ -1,4 +1,4 @@
-<x-layout title="{{ $blog->title }} - Bloom Beauty">
+<x-layout title="{{ $blog->title }} - Sand & Sky">
 
     <div class="container pt-2 terms">
         <div class="row justify-content-center pb-5 mb-5">

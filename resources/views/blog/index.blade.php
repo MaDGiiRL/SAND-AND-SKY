@@ -1,4 +1,4 @@
-<x-layout title="Blog - Bloom Beauty">
+<x-layout title="Blog - Sand & Sky">
 
     <x-header />
 

@@ -3,11 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Support\Facades\Auth;
 
-class BlogController extends Controller
+class BlogController extends Controller implements HasMiddleware
 {
+
+    public static function middleware(): array
+    {
+
+        return [
+            'verified'
+        ];
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -53,7 +64,7 @@ class BlogController extends Controller
     {
         $blog = Blog::findOrFail($id);
         $latestBlogs = Blog::orderBy('created_at', 'desc')->take(5)->get(); // Prende gli ultimi 5 articoli
-    
+
         return view('blog.show', compact('blog', 'latestBlogs'));
     }
 }

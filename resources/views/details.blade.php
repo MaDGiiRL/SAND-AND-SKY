@@ -1,4 +1,4 @@
-<x-layout title="Homepage - Bloom Beauty">
+<x-layout title="Homepage - Sand & Sky">
     <!-- details product -->
     <div class="container mt-5">
         <div class="row align-items-center">

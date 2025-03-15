@@ -1,4 +1,4 @@
-<x-layout title="My Account - Bloom Beauty">
+<x-layout title="My Account - Sand & Sky">
     <div class="bg-register">
         <div class="container min-vh-100">
             <div class="row pt-5">

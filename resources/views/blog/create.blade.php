@@ -1,4 +1,4 @@
-<x-layout title="Write Your Article - Bloom Beauty">
+<x-layout title="Write Your Article - Sand & Sky">
     <div class="bg-register min-vh-100">
         <div class="container pt-5 ">
             <div class="row justify-content-center">
