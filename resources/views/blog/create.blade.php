@@ -24,6 +24,15 @@
                         </div>
 
                         <div class="my-3">
+                            <select name="category_id" id="" class="form-control">
+                                <option disabled selected>Choose a category</option>
+                                @foreach ($categories as $category)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="my-3">
                             <input type="file" class="form-control" name="img">
                         </div>
 
@@ -51,3 +60,7 @@
         </div>
     </div>
 </x-layout>
+
+
+ 
+

@@ -17,6 +17,7 @@ class ReviewController extends Controller implements HasMiddleware
     {
         return [
             'auth',
+            'verified',
         ];
     }
     /**

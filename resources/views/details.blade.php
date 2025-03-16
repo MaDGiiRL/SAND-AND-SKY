@@ -162,7 +162,11 @@
                             <div class="d-flex flex-row align-items-center">
                                 <i class="bi bi-person-circle  fs-3 me-2 pb-2"></i>
                                 <a href="{{route('review.user' , $review->user)}}" class="link-red">
-                                <h6>{{ $review->user->name}}</h6>
+                                    @if ($review->user)
+                                    <h6>{{ $review->user->name}}</h6>
+                                    @else
+                                    <h6 class="data pb-4">User Deleted</h6>
+                                    @endif
                                 </a>
                             </div>
                             <span class="text-muted">✔️ Verified Reviewer</span>

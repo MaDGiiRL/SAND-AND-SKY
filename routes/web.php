@@ -36,3 +36,5 @@ Route::get('/user/blog/{id}', [BlogController::class, 'user_blog'])->name('blog.
 Route::get('/user/review/{id}', [ReviewController::class, 'user_review'])->name('review.user');
 Route::delete('/user/destroy', [PublicController::class, 'user_destroy'])->name('user.destroy');
 Route::get('/my-account', [PublicController::class, 'account'])->name('account');
+
+Route::get('/blog/category/{categoryId}', [BlogController::class, 'filterByCategory'])->name('blog.category');

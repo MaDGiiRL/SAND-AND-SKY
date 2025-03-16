@@ -18,7 +18,7 @@ class PublicController extends Controller implements HasMiddleware
     {
 
         return [
-            new Middleware('auth', except: ['index']),
+            new Middleware('auth', except: ['homepage']),
             'verified'
         ];
     }
@@ -591,7 +591,7 @@ class PublicController extends Controller implements HasMiddleware
 
     public function user_destroy()
     {
-        $user = Auth::user(); 
+        $user = Auth::user();
 
         foreach ($user->blogs as $blog) {
             $blog->update([

@@ -44,6 +44,7 @@ h3 {
     letter-spacing: 3px;
 }
 
+
 .btn-outline-custom {
     --bs-btn-color: #e83e71;
     --bs-btn-border-color: #e83e71;
@@ -682,6 +683,7 @@ button#apply-filters:hover {
     background: #ffafbc;
     padding: 10px;
     text-align: center;
+    text-decoration: none
 }
 
 .category-bar .btn {
@@ -696,6 +698,27 @@ button#apply-filters:hover {
     background: #e83e71;
     color: white;
     border: 1px solid white;
+}
+
+.category-bar a {
+    text-decoration: none
+}
+
+.cat-badge {
+    top: 10px;
+    left: 10px;
+    background-color: #e83e71;
+    color: white;
+    padding: 5px 8px;
+    font-size: 18px;
+    border-radius: 5px;
+    font-weight: normal;
+    transition: all 1s;
+
+}
+
+.cat-badge:hover {
+    background-color: black;
 }
 
 .blog-card {

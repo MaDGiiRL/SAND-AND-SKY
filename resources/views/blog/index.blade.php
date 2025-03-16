@@ -9,7 +9,7 @@
                 <div class="card">
                     <a href=""> <img src="{{Storage::url($blog->img)}}" class="img-fluid">
                         <div class="card-body">
-                            <a href="" class="link-red">
+                            <a href="{{ route('blog.show', ['id' => $blog->id]) }}" class="link-red">
                                 <h6>{{ Str::limit($blog['title'], 50, '...') }} <i class="bi bi-arrow-right-circle"></i></h6>
                             </a>
                         </div>
@@ -20,14 +20,13 @@
     </div>
 
     <div class="category-bar">
-        <button class="btn">ALL CATEGORY</button>
-        <button class="btn">ECOFRIENDLY</button>
-        <button class="btn">ORGANIC</button>
-        <button class="btn">TIPS</button>
-        <button class="btn">COMPILATION</button>
-        <button class="btn">INGREDIENTS</button>
-        <button class="btn">ANTIAGING</button>
+        @foreach($categories as $category)
+        <a href="{{ route('blog.category', ['categoryId' => $category->id]) }}">
+            <button class="btn">{{ $category->name }}</button>
+        </a>
+        @endforeach
     </div>
+
 
     <div class="container">
         <div class="blog">
@@ -38,10 +37,15 @@
                 <div class="col-md-6 p-md-5 pt-3 pt-md-0 order-last">
                     <div class="d-flex flex-row">
                         <p class="small">{{$blog->created_at->format('d F, Y')}} by </p> <a href="{{route('blog.user' , $blog->user->id)}}">
-                            <h6 class="pb-4 ps-1 link-red"> {{$blog->user->name ?? 'Anonymous'}}</h6>
+                            @if ($blog->user)
+                            <h6 class="pb-4 ps-1 link-red"> {{$blog->user->name}}</h6>
+                            @else
+                            User Deleted
+                            @endif
                         </a>
                     </div>
-                    <h2 class="pb-4">{{$blog->title}}</h2>
+
+                    <h2 class="py-4">{{$blog->title}}</h2>
                     <div> {!! Str::limit(strip_tags($blog->body), 400, '...') !!}</div>
                     <a href="{{ route('blog.show', ['id' => $blog->id]) }}" class="btn btn-dark text-center mt-3">Show More</a>
                 </div>
@@ -58,10 +62,15 @@
                 <div class="col-md-6 p-md-5 pt-3 pt-md-0 order-last">
                     <div class="d-flex flex-row">
                         <p class="small">{{$blog->created_at->format('d F, Y')}} by </p> <a href="{{route('blog.user' , $blog->user->id)}}">
-                            <h6 class="pb-4 ps-1 link-red"> {{$blog->user->name ?? 'Anonymous'}}</h6>
+                            @if ($blog->user)
+                            <h6 class="pb-4 ps-1 link-red"> {{$blog->user->name}}</h6>
+                            @else
+                            User Deleted
+                            @endif
                         </a>
                     </div>
-                    <h2 class="pb-4">{{$blog->title}}</h2>
+
+                    <h2 class="py-4">{{$blog->title}}</h2>
 
                     <div> {!! Str::limit(strip_tags($blog->body), 400, '...') !!}</div>
                     <a href="{{ route('blog.show', ['id' => $blog->id]) }}" class="btn btn-dark text-center mt-3">Show More</a>
@@ -72,13 +81,38 @@
         </div>
     </div>
 
-    <div class="pagination-container">
+    <div class="pagination-container d-flex justify-content-center mb-5">
         {{ $blogs->links() }}
     </div>
+
     @if(session('message'))
     <div class="alert alert-success">
         {{ session('message') }}
     </div>
     @endif
 
+
+
+    <script>
+        $(document).ready(function() {
+            $('#load-more').on('click', function() {
+                let page = {
+                    {
+                        $blogs - > currentPage()
+                    }
+                } + 1;
+                let url = "{{ route('blog.index') }}?page=" + page;
+                $.ajax({
+                    url: url,
+                    method: 'GET',
+                    success: function(data) {
+                        $('#blog-container').append(data);
+                        if (!data.hasMorePages) {
+                            $('#load-more').hide();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </x-layout>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\User;
+use App\Models\Category;
 use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 use App\Http\Requests\BlogRequest;
@@ -24,9 +25,14 @@ class BlogController extends Controller implements HasMiddleware
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $blogs = Blog::with('user')->orderBy('created_at', 'desc')->paginate(5); // Aggiunto ->get()
+        $blogs = Blog::with('user')->orderBy('created_at', 'desc')->paginate(4);
+
+        if ($request->ajax()) {
+            return view('blog.partials.blogs', compact('blogs'));
+        }
+
         return view('blog.index', compact('blogs'));
     }
 
@@ -35,6 +41,7 @@ class BlogController extends Controller implements HasMiddleware
      */
     public function create()
     {
+
         return view('blog.create');
     }
 
@@ -49,6 +56,7 @@ class BlogController extends Controller implements HasMiddleware
             'body' => $request->body,
             'img' => $request->hasFile('img') ? $request->file('img')->store('images', 'public') : null,
             'user_id' => Auth::user()->id,
+            'category_id' => $request->category_id,
         ]);
 
 
@@ -70,5 +78,12 @@ class BlogController extends Controller implements HasMiddleware
         $blogs = $user->blogs;
 
         return view('blog.user', compact('blogs', 'user'));
+    }
+    
+    public function filterByCategory($categoryId)
+    {
+        $category = Category::findOrFail($categoryId);
+        $blogs = Blog::with('user')->where('category_id', $categoryId)->orderBy('created_at', 'desc')->paginate(4);
+        return view('blog.category', compact('category', 'blogs'));
     }
 }

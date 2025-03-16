@@ -14,7 +14,11 @@
                 </div>
                 <hr>
                 <div class="p-5">
+                    @if ($blog->user)
                     <h6 class="data pb-4">{{$blog->created_at->format('d F, Y')}} by {{$blog->user->name}}</h6>
+                    @else
+                    <h6 class="data pb-4">{{$blog->created_at->format('d F, Y')}} by User Deleted</h6>
+                    @endif
                     <h2 class="pb-4">{{$blog->title}}</h2>
                     <div class="body-article small"> {!! Str::limit(strip_tags($blog->body), 400, '...') !!}</div>
                     <div class="pt-4">
@@ -46,7 +50,7 @@
                         </form>
 
                         <div class="col-12">
-                        @foreach ($blog->comments as $comment)
+                            @foreach ($blog->comments as $comment)
                             <div class="shadow border roudend p-5 comment-card my-3">
                                 <div class="comment-header">
                                     <div>
@@ -76,6 +80,7 @@
             <!-- Sidebar Sticky -->
             <div class="col-md-4 bg-custom">
                 <div class="position-sticky pb-5" style="top: 80%">
+                    <h4 class="mt-4">Latest Articles</h4>
                     <ul class="list-group shadow">
                         @foreach($latestBlogs as $latest)
                         <li class="list-group-item">
@@ -85,7 +90,6 @@
                         </li>
                         @endforeach
                     </ul>
-                    <h4 class="mt-4">Latest Articles</h4>
                 </div>
             </div>
 
