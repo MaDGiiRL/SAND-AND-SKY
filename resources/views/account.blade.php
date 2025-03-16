@@ -35,7 +35,7 @@
                             </form>
 
                             <a class="small btn btn-danger" href="" onclick="event.preventDefault(); document.querySelector('#form_destroy').submit();">Delete</a>
-                            <form action="{{route('user.destroy')}}" method="POST" class="d-none" id="form-destroy">
+                            <form action="{{route('user.destroy')}}" method="POST" class="d-none" id="form_destroy">
                                 @csrf
                                 @method('DELETE')
                             </form>

@@ -591,7 +591,7 @@ class PublicController extends Controller implements HasMiddleware
 
     public function user_destroy()
     {
-        $user = Auth::user();
+        $user = Auth::user(); 
 
         foreach ($user->blogs as $blog) {
             $blog->update([
