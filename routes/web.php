@@ -24,9 +24,9 @@ Route::get('/my-account', [AuthController::class, 'account'])->name('auth.accoun
 Route::get('/blog-index', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create')->middleware('auth');
 Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
-Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show')->middleware('auth');
 
-Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store')->middleware('auth');
+Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store');
 
 Route::get('/review/index', [ReviewController::class, 'index'])->name('review.index');
 Route::get('/review/create', [ReviewController::class, 'create'])->name('review.create')->middleware('auth');

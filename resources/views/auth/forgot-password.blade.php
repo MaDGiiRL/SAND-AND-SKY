@@ -1,5 +1,5 @@
-<x-layout title="Forgot Password - Sand & Sky>
-    <div class="bg-register pb-5 vh-100 mt-5 pt-5 auth">
+<x-layout title="Forgot Password - Bloom Beauty">
+    <div class="bg-register pb-5 vh-100 mt-5 pt-5">
         <div class="container py-5 my-5 py-md-0 my-md-0 register">
             <div class="row justify-content-center p-5 mt-4 mt-md-0">
                 <div class="col-md-6 border shadow roundend bg-white p-4 p-md-5">

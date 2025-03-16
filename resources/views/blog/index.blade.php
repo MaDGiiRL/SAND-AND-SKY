@@ -93,6 +93,7 @@
 
 
 
+
     <script>
         $(document).ready(function() {
             $('#load-more').on('click', function() {
@@ -115,4 +116,5 @@
             });
         });
     </script>
+
 </x-layout>
