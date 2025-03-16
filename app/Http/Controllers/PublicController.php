@@ -10,19 +10,8 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Routing\Controllers\HasMiddleware;
 
-class PublicController extends Controller implements HasMiddleware
+class PublicController extends Controller 
 {
-
-
-    public static function middleware(): array
-    {
-
-        return [
-            new Middleware('auth', except: ['homepage']),
-            'verified'
-        ];
-    }
-
 
     public $products = [
         [

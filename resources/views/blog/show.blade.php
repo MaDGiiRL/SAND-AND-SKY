@@ -42,12 +42,28 @@
                     <h4 class="text-center mb-4 pb-2">Comments on {{ $blog->title }} </h4>
                     <div class="row">
 
+                        @auth
                         <form method="POST" action="{{route('comment.store')}}">
                             @csrf
                             <input type="text" name="body" class="form-control pb-5 p-3" placeholder="Enter your comment...">
                             <input type="text" value="{{$blog->id}}" name="blog_id" class="d-none">
                             <button type="submit" class="btn btn-outline-custom mt-3">Send Comment</button>
                         </form>
+                        @endauth
+
+                        @guest
+                        <div class="d-flex flex-row gap-5 justify-content-center">
+                            <button class="btn btn-light  border d-flex align-items-center justify-content-center">
+                                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" class="me-2" width="20"> <span class="d-md-block d-none">Login With Google</span>
+                            </button>
+                            <a href="{{ route('github.login') }}" class="btn link-light btn-dark border d-flex align-items-center justify-content-center">
+                                <i class="bi bi-github pe-2"></i> <span class="d-md-block d-none">Login With GitHub</span>
+                            </a>
+                        </div>
+                        <p class="text-center mt-4 back-to-log">Do you already have an account? <a href="{{route('login')}}">Back to Log In</a></p>
+                        <p class="text-center  back-to-log">Forgot you password? <a href="{{ route('password.request') }}">Recover Password</a></p>
+                        <p class="text-center back-to-log">You don't have an account? <a href="{{route('register')}}">Register</a></p>
+                        @endguest
 
                         <div class="col-12">
                             @foreach ($blog->comments as $comment)

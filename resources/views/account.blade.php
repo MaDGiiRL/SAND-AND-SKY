@@ -31,9 +31,10 @@
                                         <input type="text" class="form-control" placeholder="Last Name">
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-outline-custom w-50 py-2 me-5">Save</button>
+                                <button type="submit" class="btn btn-outline-custom w-100 py-2 me-5">Save</button>
                             </form>
 
+                            <h4 class="fw-bold text-dark py-4 mt-5">Delete Account</h4>
                             <a class="small btn btn-danger" href="" onclick="event.preventDefault(); document.querySelector('#form_destroy').submit();">Delete</a>
                             <form action="{{route('user.destroy')}}" method="POST" class="d-none" id="form_destroy">
                                 @csrf

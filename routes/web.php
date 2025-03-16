@@ -9,7 +9,7 @@ use App\Http\Controllers\CommentController;
 
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 Route::get('/shop/all', [PublicController::class, 'all'])->name('all');
-Route::get('/shop-details/{id}/{name}', [PublicController::class, 'details'])->name('details');
+Route::get('/shop-details/{id}/{name}', [PublicController::class, 'details'])->name('details')->middleware('auth');
 Route::post('/filtered-products', [PublicController::class, 'filteredProducts'])->name('filtered.products');
 Route::get('/products/tag/{tag}', [PublicController::class, 'filterByTag'])->name('products.byTag');
 Route::get('/about', [PublicController::class, 'about'])->name('about');
@@ -22,19 +22,19 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/my-account', [AuthController::class, 'account'])->name('auth.account');
 
 Route::get('/blog-index', [BlogController::class, 'index'])->name('blog.index');
-Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
+Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create')->middleware('auth');
 Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
 Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
 
-Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store');
+Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store')->middleware('auth');
 
 Route::get('/review/index', [ReviewController::class, 'index'])->name('review.index');
-Route::get('/review/create', [ReviewController::class, 'create'])->name('review.create');
+Route::get('/review/create', [ReviewController::class, 'create'])->name('review.create')->middleware('auth');
 Route::post('/review/store', [ReviewController::class, 'store'])->name('review.store');
 
-Route::get('/user/blog/{id}', [BlogController::class, 'user_blog'])->name('blog.user');
-Route::get('/user/review/{id}', [ReviewController::class, 'user_review'])->name('review.user');
+Route::get('/user/blog/{id}', [BlogController::class, 'user_blog'])->name('blog.user')->middleware('auth');
+Route::get('/user/review/{id}', [ReviewController::class, 'user_review'])->name('review.user')->middleware('auth');
 Route::delete('/user/destroy', [PublicController::class, 'user_destroy'])->name('user.destroy');
 Route::get('/my-account', [PublicController::class, 'account'])->name('account');
 
-Route::get('/blog/category/{categoryId}', [BlogController::class, 'filterByCategory'])->name('blog.category');
+Route::get('/blog/category/{categoryId}', [BlogController::class, 'filterByCategory'])->name('blog.category')->middleware('auth');

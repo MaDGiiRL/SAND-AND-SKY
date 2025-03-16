@@ -10,16 +10,8 @@ use App\Http\Requests\ReviewRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Controllers\HasMiddleware;
 
-class ReviewController extends Controller implements HasMiddleware
+class ReviewController extends Controller 
 {
-
-    public static function middleware(): array
-    {
-        return [
-            'auth',
-            'verified',
-        ];
-    }
     /**
      * Display a listing of the resource.
      */

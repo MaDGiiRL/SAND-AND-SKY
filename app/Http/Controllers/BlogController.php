@@ -11,16 +11,8 @@ use App\Http\Requests\BlogRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Controllers\HasMiddleware;
 
-class BlogController extends Controller implements HasMiddleware
+class BlogController extends Controller 
 {
-
-    public static function middleware(): array
-    {
-
-        return [
-            'verified'
-        ];
-    }
 
     /**
      * Display a listing of the resource.
