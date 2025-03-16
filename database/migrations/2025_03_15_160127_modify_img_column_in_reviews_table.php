@@ -14,7 +14,7 @@ class ModifyImgColumnInReviewsTable extends Migration
     public function up(): void
     {
         Schema::table('reviews', function (Blueprint $table) {
-            $table->string('img')->nullable()->change(); // Rendi nullable la colonna 'img'
+            $table->string('img')->nullable()->change(); 
         });
     }
 
@@ -26,7 +26,7 @@ class ModifyImgColumnInReviewsTable extends Migration
     public function down(): void
     {
         Schema::table('reviews', function (Blueprint $table) {
-            $table->string('img')->nullable(false)->change(); // Annulla il cambiamento se necessario
+            $table->string('img')->nullable(false)->change(); 
         });
     }
 }

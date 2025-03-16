@@ -12,10 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('comments', function (Blueprint $table) {
-            // Rimuovi prima la vecchia chiave esterna
+
             $table->dropForeign(['user_id']);
 
-            // Aggiungi nuovamente la colonna con la nuova chiave esterna con onDelete('cascade')
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
@@ -29,10 +28,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('comments', function (Blueprint $table) {
-            // Rimuovi la nuova chiave esterna
+       
             $table->dropForeign(['user_id']);
 
-            // Riaggiungi la vecchia chiave esterna senza onDelete('cascade')
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users');

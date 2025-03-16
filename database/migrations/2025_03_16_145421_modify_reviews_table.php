@@ -9,7 +9,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('reviews', function (Blueprint $table) {
-            $table->dropForeign(['user_id']); // Rimuove il vecchio vincolo
+            $table->dropForeign(['user_id']);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
