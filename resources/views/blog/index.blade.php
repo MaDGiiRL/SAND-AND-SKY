@@ -81,40 +81,21 @@
         </div>
     </div>
 
-    <div class="pagination-container d-flex justify-content-center mb-5">
-        {{ $blogs->links() }}
+    
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-12">
+                {{ $blogs->links() }}
+            </div>
+        </div>
     </div>
+
+
+
 
     @if(session('message'))
     <div class="alert alert-success">
         {{ session('message') }}
     </div>
     @endif
-
-
-
-
-    <script>
-        $(document).ready(function() {
-            $('#load-more').on('click', function() {
-                let page = {
-                    {
-                        $blogs - > currentPage()
-                    }
-                } + 1;
-                let url = "{{ route('blog.index') }}?page=" + page;
-                $.ajax({
-                    url: url,
-                    method: 'GET',
-                    success: function(data) {
-                        $('#blog-container').append(data);
-                        if (!data.hasMorePages) {
-                            $('#load-more').hide();
-                        }
-                    }
-                });
-            });
-        });
-    </script>
-
 </x-layout>

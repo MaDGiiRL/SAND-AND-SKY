@@ -21,10 +21,6 @@ class BlogController extends Controller
     {
         $blogs = Blog::with('user')->orderBy('created_at', 'desc')->paginate(4);
 
-        if ($request->ajax()) {
-            return view('blog.partials.blogs', compact('blogs'));
-        }
-
         return view('blog.index', compact('blogs'));
     }
 
